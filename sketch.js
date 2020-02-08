@@ -1,234 +1,201 @@
 let canvas;
 
-// Square starting notes
-let startingNotes = ["startNote1", "startNote2", "startNote3", "startNote4", "startNote5", "startNote6"];
+const canvasWrapper = document.getElementById("canvas-wrapper");
+const openStrings = ["openString1", "openString2", "openString3", "openString4", "openString5", "openString6"];
+const notesArray = ["C", "Db", "D", "Eb", "E", "F", "Gb", "G", "Ab", "A", "Bb", "B"];
+const darkFrets = [3, 5, 7, 9, 12];
+let tuning = ["E", "B", "G", "D", "A", "E"];
+let newNote = [];
+let presetTuning;
 
-// Guitar notes
-let notesArray = ["C", "Db", "D", "Eb", "E", "F", "Gb", "G", "Ab", "A", "Bb", "B"];
-let arrayIndex;
-let noteName;
+let hasClicked = false;
+let reset = false;
+let allFretsDisplayed = false;
+let flatNotesVisible = false;
+let allNotesVisible = true;
 
-// Default guitar tuning (Top string to bottom)
-let startingTuning = ["E", "B", "G", "D", "A", "E"];
-let tuning = startingTuning;
-
-// For-loop indices
-let i;
-let j;
-
-// Offsets position of notes and strings
-let offsetPos = 50;
-
-// RGB colors for notes
+// RGB colors for all notes
 let colorR;
 let colorG;
 let colorB;
 
-let newString = true;
-let hasClicked = false;
-
-function setup() {
-  canvas = createCanvas(670, 370);
-
-  // Prevents opening context menu with right click
-  document.oncontextmenu = function() {
-    return false;
+function changeTuning(newTuning) {
+  presetTuning = newTuning.id.split("-").reverse();
+  for (i = 0; i < tuning.length; i++) {
+    tuning[i] = presetTuning[i];
   }
+  reset = true;
+  loop();
+  scrollUp();
 }
 
+function scrollUp() {
+  canvasWrapper.scrollIntoView({ behavior: "smooth" });
+}
+function toggleAllfrets() {
+  allFretsDisplayed = !allFretsDisplayed;
+  loop();
+}
+
+function toggleFlatNotes() {
+  allNotesVisible = !allNotesVisible;
+  loop();
+}
+
+function toggleFlatNames() {
+  flatNotesVisible = !flatNotesVisible;
+  loop();
+}
+
+function setup() {
+  canvas = createCanvas(1200, 600);
+  canvas.parent(canvasWrapper);
+
+  document.oncontextmenu = function() {
+    return false;
+  };
+}
 function draw() {
+  clear();
+  startGame();
+}
+
+function startGame() {
+  border();
   fretboard();
-  startNotes();
-  drawNote();
+  createOpenString();
+  createNote();
+}
+
+function border() {
+  stroke(26, 35, 59);
+  strokeWeight(25);
+  line(0, 0, 1200, 0); // top
+  line(1200, 0, 1200, 600); // right
+  line(0, 600, 1200, 600); // bottom
+  line(0, 1200, 0, 0); // left
 }
 
 function fretboard() {
-  var fretNumPos = 345;
-  var linePosX = 60;
-  var linePosY = 50;
-
-  // Strings (Horizontal lines)
-  for (i = 0; i < 6; i++) {
-    // Frets (Vertical lines)
-    for (j = 1; j < 14; j++) {
-      strokeWeight(3);
-      line(linePosX, 50, linePosX, 300);
-
-      if (j === 3 || j === 5 || j === 7 || j === 9 || j === 12) {
-        // Grey frets
-        fill(200);
-        rectMode(CORNER);
-        rect(linePosX, 50, 50, 250);
-
-        // Numbers below frets
-        strokeWeight(0);
-        fill(0);
-        textSize(18);
-        textAlign(CENTER);
-        text(j, linePosX + 25, fretNumPos);
-      }
-      linePosX += offsetPos;
-    }
-    line(60, linePosY, 660, linePosY);
-    linePosY += offsetPos;
-  }
+  drawFrets();
+  drawStrings();
 }
-// When mouse is clicked, mouse position is passed to check if it is inside area of sqaure
-function mousePressed() {
-  for (i = 0; i < 6; i++) {
-    if (mouseButton === LEFT) {
-      startingNotes[i].clicked(mouseX, mouseY, "left");
-    } else if (mouseButton === RIGHT) {
-      startingNotes[i].clicked(mouseX, mouseY, "right");
+
+function drawFrets() {
+  var fretPosX = 150;
+  var fretNumPosX = 190;
+  var fretOffsetPos = 83.3;
+
+  for (j = 1; j < 13; j++) {
+    strokeWeight(5);
+    line(fretPosX, 75, fretPosX, 500);
+
+    // Darker frets
+    if (darkFrets.includes(j)) {
+      fill(199, 206, 226);
+      stroke(0);
+      strokeWeight(5);
+      rectMode(CORNER);
+      rect(fretPosX, 75, fretOffsetPos, 425);
     }
+    // Numbers below frets
+    if (darkFrets.includes(j) || allFretsDisplayed) {
+      textAlign(CENTER);
+      strokeWeight(0);
+      fill(0);
+      textSize(22);
+      textStyle(BOLD);
+      text(j, fretNumPosX, 555);
+    }
+    fretPosX += fretOffsetPos;
+    fretNumPosX += fretOffsetPos;
   }
 }
 
-function startNotes() {
-  var squarePosY = 100;
+function drawStrings() {
+  var stringPosY = 75;
+  var stringOffsetPos = 85;
 
   for (i = 0; i < 6; i++) {
-    // If sqaure note hasn't been clicked
-    if (!hasClicked) {
-      // Starting note is default tuning note
-      startingNotes[i] = new firstNote(tuning[i], squarePosY);
-    } else {
-      // Updated note
-      startingNotes[i] = new firstNote(startingNotes[i].note, squarePosY);
-    }
-    // Draws sqaure starting note
-    startingNotes[i].createStartingNote();
-    squarePosY += offsetPos;
+    strokeWeight(5);
+    line(150, stringPosY, 1150, stringPosY);
+    stringPosY += stringOffsetPos;
   }
-  squarePosY = 80;
+}
+
+function createOpenString() {
+  var openStringPosY = 55;
+  var gapAmount = 83;
+
+  for (i = 0; i < 6; i++) {
+    if (!hasClicked || reset) {
+      openStrings[i] = new openString(tuning[i], openStringPosY);
+    } else if (hasClicked) {
+      openStrings[i] = new openString(openStrings[i].note, openStringPosY);
+    }
+    openStrings[i].drawOpenString();
+    openStringPosY += gapAmount;
+  }
+  reset = false;
   noLoop();
 }
 
-// Square starting notes
-class firstNote {
-  constructor(note, y) {
-    this.note = note;
-    this.size = 18;
-    this.x = 30;
-    this.y = y - 50;
-    this.yText = y - 42;
-  }
-  createStartingNote() {
-    // Gets index of current note from array
-    arrayIndex = notesArray.indexOf(this.note);
+function touchStarted() {
+  mouseCoordinates();
+}
+function mousePressed() {
+  mouseCoordinates();
+}
 
-    // Create Square
-    noteColor();
-    fill(colorR, colorG, colorB);
-    strokeWeight(4);
-    rectMode(RADIUS);
-    rect(this.x, this.y, this.size, this.size);
-
-    // Text inside note
-    fill(255);
-    stroke(0);
-    textSize(20);
-    textAlign(CENTER);
-    text(this.note, this.x, this.yText);
-  }
-
-  clicked(posX, posY, mouseClick) {
-    // if mouse is inside Square
-    if (posX > this.x - this.size &&
-      posX < this.x + this.size &&
-      posY > this.y - this.size &&
-      posY < this.y + this.size) {
-
-      arrayIndex = notesArray.indexOf(this.note);
-
-      if (mouseClick === "right") {
-        // if last note in array, set to first
-        if (arrayIndex === notesArray.length - 1) {
-          arrayIndex = 0;
-        } else {
-          arrayIndex++;
-        }
-      } else if (mouseClick === "left") {
-        // if first note in array, set to last
-        if (arrayIndex === 0) {
-          arrayIndex = 11;
-        } else {
-          arrayIndex--;
-        }
-      }
-      // Updates to new note
-      this.note = notesArray[arrayIndex];
-      hasClicked = true;
-      loop();
+function mouseCoordinates() {
+  for (i = 0; i < 6; i++) {
+    if (mouseButton === LEFT) {
+      openStrings[i].changeNoteOnClick(mouseX, mouseY, "left");
+    } else if (mouseButton === RIGHT) {
+      openStrings[i].changeNoteOnClick(mouseX, mouseY, "right");
+    }
+    // Touchscreens
+    else {
+      // TODO: Create button for mobile/tablet users to switch between 'left' and 'right'
+      openStrings[i].changeNoteOnClick(mouseX, mouseY, "left");
     }
   }
 }
 
-// Draws circle note
-function drawNote() {
-  var circleX;
-  var circleY = 50;
-  var circleSize = 32;
+// Circle notes on fretboard
+function createNote() {
+  var noteX;
+  var noteY = 75;
+  var noteOffset = 85;
+  var noteIndex = 0;
 
   for (i = 0; i < 6; i++) {
-    circleX = 85;
+    noteX = 190; // Reset x position for each string
     for (j = 0; j < 12; j++) {
+      newNote.push(noteIndex);
+      newNote[noteIndex] = new note(
+        noteX,
+        noteY,
+        (openStrings[i].getCurrentNote() + j) % 12
+      );
 
-      // Note
-      createNote();
-      noteColor();
-      fill(colorR, colorG, colorB);
-      strokeWeight(4);
-      circle(circleX, circleY, circleSize);
-
-      // Text inside note
-      fill(255);
-      stroke(0);
-      strokeWeight(4);
-      textSize(14);
-      textAlign(CENTER);
-      text(noteName, circleX, circleY + 5);
-
-      circleX += offsetPos;
+      if (allNotesVisible) {
+        newNote[noteIndex].drawNote();
+      } else {
+        // only draw natural notes
+        if (!newNote[noteIndex].isFlat()) {
+          newNote[noteIndex].drawNote();
+        }
+      }
+      noteX += 83.3;
+      noteIndex++;
     }
-    circleY += offsetPos;
-    newString = true; // Move to next string
+    noteY += noteOffset;
   }
 }
-
-// returns string value of note
-function createNote() {
-  if (newString) {
-    arrayIndex = notesArray.indexOf(startingNotes[i].note);
-
-    if (arrayIndex === notesArray.length - 1) {
-      arrayIndex = 0;
-    } else {
-      arrayIndex++;
-    }
-    newString = false;
-  } else {
-    if (arrayIndex === notesArray.length - 1) {
-      arrayIndex = 0;
-    } else if (arrayIndex > notesArray.length - 1) {
-      arrayIndex = 1;
-    } else {
-      arrayIndex++;
-    }
-  }
-  noteName = notesArray[arrayIndex];
-
-  // if note contains a flat, remove text
-  if (noteName.length === 2) {
-    noteName = "";
-  }
-  return noteName;
-}
-
-// Returns RGB values for each note
-function noteColor() {
-  switch (arrayIndex) {
-
+// RGB values for each note
+function colors(index) {
+  switch (index) {
     // C Note
     case 0:
       colorR = 230;
@@ -236,52 +203,52 @@ function noteColor() {
       colorB = 54;
       break;
 
-      // D Note
+    // D Note
     case 2:
       colorR = 28;
       colorG = 209;
       colorB = 19;
       break;
 
-      // E Note
+    // E Note
     case 4:
       colorR = 219;
       colorG = 26;
       colorB = 216;
       break;
 
-      // F Note
+    // F Note
     case 5:
       colorR = 224;
       colorG = 221;
       colorB = 9;
       break;
 
-      // G Note
+    // G Note
     case 7:
       colorR = 34;
       colorG = 9;
       colorB = 224;
       break;
 
-      // A Note
+    // A Note
     case 9:
       colorR = 224;
       colorG = 135;
       colorB = 9;
       break;
 
-      // B Note
+    // B Note
     case 11:
       colorR = 9;
       colorG = 203;
       colorB = 224;
       break;
 
-      // Accidental Notes
+    // Accidental Notes
     default:
-      colorR = 255;
-      colorG = 255;
-      colorB = 255;
+      colorR = 220;
+      colorG = 220;
+      colorB = 220;
   }
 }
