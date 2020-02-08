@@ -1,20 +1,73 @@
 <!DOCTYPE html>
 <html lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet"/>
+    <script src="https://kit.fontawesome.com/35fd1eea2c.js"></script>
+    <title>FretboardTunings</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="title">
+        <h1>FretboardTunings</h1>
+      </div>
+      <div id="canvas-wrapper"></div>
+      <div class="info-wrapper-container">
+        <div class="info-wrapper">
+          <div class="info info-presets">
+            <h3>Presets</h3>
+            <div class="info-text info-text-presets">
+              <div class="tuning" id="E-A-D-G-B-E" onclick="changeTuning(this)">Standard</div>
+              <div class="tuning" id="D-A-D-G-B-E" onclick="changeTuning(this)">Drop-D</div>
+              <div class="tuning" id="D-A-D-G-B-D" onclick="changeTuning(this)">Double Drop-D</div>
+              <div class="tuning" id="Eb-Ab-Db-Gb-Bb-Eb" onclick="changeTuning(this)">Half-Step Down</div>
+              <div class="tuning" id="D-G-C-F-A-D" onclick="changeTuning(this)">Full-Step Down</div>
+              <div class="tuning" id="C-A-C-G-C-E" onclick="changeTuning(this)">CACGCE</div>
+              <div class="tuning" id="C-G-C-F-C-E" onclick="changeTuning(this)">CGGFCE</div>
+              <div class="tuning" id="D-A-D-F-A-D" onclick="changeTuning(this)">DADFAD</div>
+              <div class="tuning" id="D-A-D-Gb-A-D" onclick="changeTuning(this)">DADF#AD</div>
+              <div class="tuning" id="D-A-D-G-A-D" onclick="changeTuning(this)">DADGAD</div>
+              <div class="tuning" id="D-G-D-G-B-D" onclick="changeTuning(this)">DGDGBD</div>
+              <div class="tuning" id="E-A-E-A-Bb-E" onclick="changeTuning(this)">EAEAC#E</div>
+              <div class="tuning" id="F-A-C-G-C-E" onclick="changeTuning(this)">FACGCE</div>
+            </div>
+          </div>
+          <div class="info info-instructions">
+            <h3>Instructions</h3>
+            <div class="info-text info-text-instructions">
+              <p>
+                FretboardTunings is a web application which displays the
+                fretboard notes of a guitar. This app allows you to modify the
+                tuning by clicking on an open string to change the notes, making
+                it useful as a visual reference for finding notes and chords
+                while using alternative guitar tunings.<br /> <br />
+                - Left-click on an open string to lower the note by a semitone,
+                or right-click to increase it.<br />
+                <br />
+                - Select from a list of presets to quickly find a commonly used
+                tuning.
+              </p>
+            </div>
+          </div>
+          <div class="info info-settings">
+            <h3>Settings</h3>
+            <div class="info-text info-text-settings">
+                <div class="button button-display-names" onclick="toggleFlatNotes()">Display Flat Notes</div>
+                <div class="button button-display-names" onclick="toggleFlatNames()">Display Flat Names</div>
+                <div class="button button-display-frets" onclick="toggleAllfrets()">Display All Fret Numbers</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer"><a href="https://github.com/laoiseearle/FretboardTunings"> <i class="fas fa-code-branch"></i> Fork me on GitHub</a></div>
+    </div>
+    <script src="sketch.js"></script>
+    <script src="openString.js"></script>
+    <script src="note.js"></script>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fretboard Tunings</title>
-
-  <link rel="stylesheet" type="text/css" href="style.css" />
-  <script src="libraries/p5.js"></script>
-  <script src="libraries/p5.dom.js"></script>
-  <script src="sketch.js"></script>
-
-</head>
-
-<body>
-  <h1>Fretboard Tunings</h1>
-</body>
-
+    <script src="libraries/p5.js"></script>
+    <script src="libraries/p5.dom.js"></script>
+  </body>
 </html>
