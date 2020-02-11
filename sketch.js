@@ -21,7 +21,7 @@ let colorB;
 
 function changeTuning(newTuning) {
   presetTuning = newTuning.id.split("-").reverse();
-  for (i = 0; i < tuning.length; i++) {
+  for (let i = 0; i < tuning.length; i++) {
     tuning[i] = presetTuning[i];
   }
   reset = true;
@@ -86,12 +86,12 @@ function drawFrets() {
   var fretNumPosX = 190;
   var fretOffsetPos = 83.3;
 
-  for (j = 1; j < 13; j++) {
+  for (let i = 1; i < 13; i++) {
     strokeWeight(5);
     line(fretPosX, 75, fretPosX, 500);
 
     // Darker frets
-    if (darkFrets.includes(j)) {
+    if (darkFrets.includes(i)) {
       fill(199, 206, 226);
       stroke(0);
       strokeWeight(5);
@@ -99,13 +99,13 @@ function drawFrets() {
       rect(fretPosX, 75, fretOffsetPos, 425);
     }
     // Numbers below frets
-    if (darkFrets.includes(j) || allFretsDisplayed) {
+    if (darkFrets.includes(i) || allFretsDisplayed) {
       textAlign(CENTER);
       strokeWeight(0);
       fill(0);
       textSize(22);
       textStyle(BOLD);
-      text(j, fretNumPosX, 555);
+      text(i, fretNumPosX, 555);
     }
     fretPosX += fretOffsetPos;
     fretNumPosX += fretOffsetPos;
@@ -116,7 +116,7 @@ function drawStrings() {
   var stringPosY = 75;
   var stringOffsetPos = 85;
 
-  for (i = 0; i < 6; i++) {
+  for (let i = 0; i < 6; i++) {
     strokeWeight(5);
     line(150, stringPosY, 1150, stringPosY);
     stringPosY += stringOffsetPos;
@@ -127,7 +127,7 @@ function createOpenString() {
   var openStringPosY = 55;
   var gapAmount = 83;
 
-  for (i = 0; i < 6; i++) {
+  for (let i = 0; i < 6; i++) {
     if (!hasClicked || reset) {
       openStrings[i] = new openString(tuning[i], openStringPosY);
     } else if (hasClicked) {
@@ -148,7 +148,7 @@ function mousePressed() {
 }
 
 function mouseCoordinates() {
-  for (i = 0; i < 6; i++) {
+  for (let i = 0; i < 6; i++) {
     if (mouseButton === LEFT) {
       openStrings[i].changeNoteOnClick(mouseX, mouseY, "left");
     } else if (mouseButton === RIGHT) {
@@ -169,9 +169,9 @@ function createNote() {
   var noteOffset = 85;
   var noteIndex = 0;
 
-  for (i = 0; i < 6; i++) {
+  for (let i = 0; i < 6; i++) {
     noteX = 190; // Reset x position for each string
-    for (j = 0; j < 12; j++) {
+    for (let j = 0; j < 12; j++) {
       newNote.push(noteIndex);
       newNote[noteIndex] = new note(
         noteX,
