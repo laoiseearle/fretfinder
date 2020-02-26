@@ -37,7 +37,7 @@ html {
   color: white;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 180px auto;
+  grid-template-rows: 250px auto;
   gap: 5%;
 }
 .info-wrapper-container {
