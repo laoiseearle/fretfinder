@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
 }
 
@@ -8,12 +9,11 @@ html {
   background-color: rgb(25, 30, 45);
   overflow-y: auto;
   text-align: center;
-
 }
 .wrapper {
-  background-image: -webkit-linear-gradient(rgb(25, 30, 45) 25%, rgb(245, 248, 251) 0%);
-  background-image: -o-linear-gradient(rgb(25, 30, 45) 25%, rgb(245, 248, 251) 0%);
-  background-image: linear-gradient(rgb(25, 30, 45) 25%, rgb(245, 248, 251) 0%);
+  background-image: -webkit-linear-gradient(rgb(25, 30, 45) 33%, rgb(245, 248, 251) 0%);
+  background-image: -o-linear-gradient(rgb(25, 30, 45) 33%, rgb(245, 248, 251) 0%);
+  background-image: linear-gradient(rgb(25, 30, 45) 33%, rgb(245, 248, 251) 0%);
   height: 100%;
   width: 100%;
   display: flex;
@@ -29,7 +29,7 @@ html {
 }
 .title h1 {
   padding: 0.5em;
-  font-size: 6vw;
+  font-size: 5vw;
   border: 5px solid white;
   border-radius: 2em;
 }
@@ -37,11 +37,13 @@ html {
   color: white;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 200px auto;
-  grid-gap: 2%;
+  grid-template-rows: 180px auto;
+  gap: 5%;
 }
 .info-wrapper-container {
-  padding: 5%;
+  margin: 0 10%;
+  margin-top: 5%;
+  margin-bottom: 10%;
 }
 .info {
   box-shadow: 4px 4px 8px rgb(196, 192, 192);
@@ -52,7 +54,7 @@ html {
 .info h3 {
   color: white;
   background-color: rgba(25, 30, 45, 1);
-  font-size: 3vw;
+  font-size: 2.5vw;
   padding: 0.4em;
 }
 
@@ -78,8 +80,8 @@ html {
 .info-text {
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
-  font-size: 3vw;
-  line-height: 1.4;
+  font-size: 1.6vw;
+  line-height: 2;
 }
 .info-text::-webkit-scrollbar {
   display: none;
@@ -87,18 +89,27 @@ html {
 
 .info-text-instructions {
   text-align: justify;
-  padding: 5%;
+  padding: 2% 5%;
 }
 .info-text-settings {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-evenly;
   height: 100%;
 }
-
-.tuning,
-.button {
+.info-text-presets{
+  height: 100%;
+}
+.button, .tuning{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
   cursor: pointer;
+
+}
+.tuning{
+  height: 33.3%;
 }
 
 .button:hover,
@@ -119,11 +130,11 @@ html {
   text-decoration: none;
   color: white;
   cursor: pointer;
-  font-size: 3vw;
+  font-size: 2vw;
 }
 .fa-code-branch {
   font-size: 1em;
-  padding-right: 2%;
+  padding-right: 1%;
 }
 
 .footer a:hover {
@@ -138,7 +149,7 @@ html {
 canvas {
   background-color: white;
   background-color: rgba(234, 239, 250, 1);
-  width: 90% !important;
+  width: 80% !important;
   height: auto !important;
 
   /* prevents text selection when clicking inside canvas */
@@ -157,16 +168,40 @@ canvas {
     background-color: transparent;
   }
 }
-@media (max-width: 320px) {
+@media (max-width: 1024px) {
   .info-wrapper {
-    grid-template-rows: 130px auto;
+    grid-template-rows: 200px auto;
   }
-}
-@media (min-width: 825px) {
+} 
+@media (max-width: 800px) {
   .info-wrapper {
-    grid-template-rows: 350px auto;
+    grid-template-rows: 150px auto;
+  }
+} 
+@media (max-width: 800px), (orientation: landscape) and (pointer: coarse){
+  canvas {
+    width: 90% !important;
+  }
+  .info-wrapper-container {
+    margin-left: 5%;
+    margin-right: 5%;
+  } 
+}
+@media (max-width: 600px) {
+  .info-wrapper {
+    grid-template-rows: 100px auto;
+  }
+} 
+@media (max-width: 400px){
+  .info-wrapper {
+    grid-template-rows: 80px auto;
   }
   .title h1 {
-    border: 10px solid white;
+    border: 2px solid white; 
   }
 }
+@media (max-width: 320px) {
+  .info-wrapper {
+    grid-template-rows: 50px auto;
+    }
+  }
