@@ -1,0 +1,10 @@
+.fretboard {
+  position: relative;
+  height: 150%;
+  width: 250px;
+  background-color: #6b83af;
+  border: 0.5rem solid #031322;
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: row-reverse;
+}
