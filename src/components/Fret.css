@@ -1,0 +1,29 @@
+.fret {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 10px solid #1e2e4d;
+}
+
+/* Guitar neck */
+.fret:first-child {
+  background-color: #021527;
+  z-index: 4;
+  border-bottom: 0.5rem solid #031f3a;
+  /* flex: 0.5; */
+}
+
+/* The four corners of the fretboard */
+.string:first-of-type > .fret:first-child {
+  border-top-right-radius: 1rem;
+}
+.string:first-of-type > .fret:last-child {
+  border-bottom-right-radius: 1rem;
+}
+.string:last-child > .fret:first-child {
+  border-top-left-radius: 1rem;
+}
+.string:last-child > .fret:last-child {
+  border-bottom-left-radius: 1rem;
+}
