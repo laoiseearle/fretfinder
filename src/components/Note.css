@@ -9,3 +9,9 @@
   align-items: center;
   justify-content: center;
 }
+
+@media only screen and (min-width: 600px) {
+  .note {
+    flex-direction: row;
+  }
+}
