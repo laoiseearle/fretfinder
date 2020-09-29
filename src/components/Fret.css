@@ -3,15 +3,27 @@
   flex: 1;
   justify-content: center;
   align-items: center;
-  border-bottom: 10px solid #1e2e4d;
+  border-bottom: 0.5rem solid;
+  border-image: linear-gradient(to bottom, #000000, #bfcefa, #000000) 0 0 100;
 }
 
 /* Guitar neck */
 .fret:first-child {
   background-color: #021527;
   z-index: 4;
-  border-bottom: 0.5rem solid #031f3a;
-  /* flex: 0.5; */
+  flex: 0.7;
+}
+.fret:last-child {
+  border-image: none;
+  border-bottom: 0.5rem solid #031322;
+}
+
+.fret:nth-child(4),
+.fret:nth-child(6),
+.fret:nth-child(8),
+.fret:nth-child(10),
+.fret:nth-child(13) {
+  background-color: #abb8db;
 }
 
 /* The four corners of the fretboard */
@@ -30,7 +42,8 @@
 
 @media only screen and (min-width: 600px) {
   .fret {
-    border-right: 0.5rem solid #1e2e4d;
+    border-right: 0.5rem solid;
+    border-image: linear-gradient(to left, #000000, #bfcefa, #000000) 1 100;
     border-bottom: none;
   }
 
@@ -38,6 +51,11 @@
     border-bottom: none;
     border-right: 0.5rem solid #031f3a;
     flex: 0.5;
+  }
+
+  .fret:last-child {
+    border-bottom: none;
+    border-right: 0.5rem solid #031f3a;
   }
   .string:first-of-type > .fret:first-child {
     border-top-right-radius: 0rem;

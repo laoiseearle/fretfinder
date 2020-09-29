@@ -1,18 +1,21 @@
 .fretboard {
   position: relative;
   height: 150%;
-  width: 250px;
-  background-color: #6b83af;
+  width: 300px;
+  background-color: #eaeaf5;
   border: 0.5rem solid #031322;
   border-radius: 2rem;
   display: flex;
   flex-direction: row-reverse;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.705);
 }
 @media only screen and (min-width: 600px) {
   .fretboard {
     height: 300px;
     width: 150%;
+    top: -15%;
     /* overflow-x: none; */
     flex-direction: column;
+    align-self: center;
   }
 }
