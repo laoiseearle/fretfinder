@@ -6,6 +6,18 @@
   border-bottom: 0.5rem solid;
   border-image: linear-gradient(to bottom, #000000, #bfcefa, #000000) 0 0 100;
 }
+.note {
+  height: 35px;
+  width: 35px;
+  background-color: rgb(255, 255, 255);
+  color: black;
+  border: 0.3rem solid rgb(0, 0, 0);
+  border-radius: 2rem;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 /* Guitar neck */
 .fret:first-child {
@@ -45,6 +57,9 @@
     border-right: 0.5rem solid;
     border-image: linear-gradient(to left, #000000, #bfcefa, #000000) 1 100;
     border-bottom: none;
+  }
+  .note {
+    flex-direction: row;
   }
 
   .fret:first-child {

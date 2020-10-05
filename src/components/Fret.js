@@ -1,12 +1,11 @@
 import React from 'react';
-import Note from './Note';
 import './Fret.css';
 
-function Fret() {
+function Fret({ note, index }) {
   return (
     <>
       <div className="fret">
-        <Note />
+        <div className="note">{note}</div>
       </div>
     </>
   );
