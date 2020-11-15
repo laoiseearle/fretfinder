@@ -6,7 +6,7 @@
   border: 0.5rem solid #031322;
   border-radius: 2rem;
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.705);
 }
 @media only screen and (min-width: 600px) {
@@ -15,7 +15,7 @@
     width: 150%;
     top: -15%;
     /* overflow-x: none; */
-    flex-direction: column;
+    flex-direction: column-reverse;
     align-self: center;
   }
 }
