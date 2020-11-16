@@ -1,21 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import String from './String';
 import './Fretboard.css';
 
 function Fretboard() {
+  const initialTuning = ['E', 'A', 'D', 'G', 'B', 'E'];
+  const [tuning, setTuning] = useState(initialTuning);
+
+  const updateTuning = (string, newNote) => {
+    const newTuning = [...tuning];
+    newTuning[string] = newNote;
+    setTuning(newTuning);
+  };
+
   return (
-    <>
-      <main>
-        <section className="fretboard">
-          <String />
-          <String />
-          <String />
-          <String />
-          <String />
-          <String />
-        </section>
-      </main>
-    </>
+    <main>
+      <section className="fretboard">
+        {tuning.map((val, index) => (
+          <String openNote={val} key={index} string={index} updateTuning={updateTuning} />
+        ))}
+      </section>
+    </main>
   );
 }
 
