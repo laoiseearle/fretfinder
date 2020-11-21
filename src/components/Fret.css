@@ -1,8 +1,12 @@
-.fret {
+.fret,
+.note {
   display: flex;
-  flex: 1;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+}
+
+.fret {
+  flex: 1;
   border-bottom: 0.4rem solid;
   border-image: linear-gradient(to bottom, #000000, #bfcefa, #000000) 0 0 100;
   background-color: #eaeaf5;
@@ -15,22 +19,22 @@
   border: 0.3rem solid rgb(0, 0, 0);
   border-radius: 2rem;
   z-index: 5;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 /* Guitar neck */
 .fret:first-child {
+  flex: 0.7;
   background-color: #021527;
   z-index: 4;
-  flex: 0.7;
 }
+
+/* Guitar bridge */
 .fret:last-child {
   border-image: none;
   border-bottom: 0.5rem solid #031322;
 }
 
+/* Dark frets (3-5-7-9-12) */
 .fret:nth-child(4),
 .fret:nth-child(6),
 .fret:nth-child(8),
@@ -62,11 +66,12 @@
 
   /* Guitar neck */
   .fret:first-child {
+    flex: 0.5;
     border-bottom: none;
     border-right: 0.5rem solid #031f3a;
-    flex: 0.5;
   }
 
+  /* Guitar bridge */
   .fret:last-child {
     border-bottom: none;
     border-right: 0.5rem solid #031f3a;

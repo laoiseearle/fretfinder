@@ -1,10 +1,10 @@
 header {
   position: fixed;
+  display: flex;
   height: 12%;
   width: 100%;
   top: 0;
   background-color: #0e5394;
-  display: flex;
   justify-content: space-around;
   align-items: center;
   z-index: 100;

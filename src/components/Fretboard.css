@@ -1,11 +1,11 @@
 .fretboard {
   position: relative;
+  display: flex;
   height: 150%;
   width: 300px;
   background-color: #eaeaf5;
   border: 0.5rem solid #031322;
   border-radius: 2rem;
-  display: flex;
   flex-direction: row;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.705);
 }
@@ -14,7 +14,6 @@
     height: 300px;
     width: 150%;
     top: -15%;
-    /* overflow-x: none; */
     flex-direction: column-reverse;
     align-self: center;
   }
