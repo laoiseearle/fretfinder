@@ -2,9 +2,10 @@ import React from 'react';
 import Fret from './Fret';
 import './String.css';
 
-function String({ openNote, updateTuning, string }) {
+function String({ openNote, updateTuning, string, flattenPitch }) {
   const fretNums = 13;
   const notesArray = ['C', 'Db', 'D', 'Eb', 'E', 'F', 'Gb', 'G', 'Ab', 'A', 'Bb', 'B'];
+  // const notesArraySharp = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
   let note = openNote;
 
   return (
@@ -23,6 +24,7 @@ function String({ openNote, updateTuning, string }) {
             string={string}
             updateTuning={updateTuning}
             notesArray={notesArray}
+            flattenPitch={flattenPitch}
           />
         );
       })}
