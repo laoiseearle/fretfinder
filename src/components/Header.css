@@ -13,7 +13,15 @@ header {
 .title {
   font-size: 2.5rem;
 }
+.title:hover {
+  cursor: default;
+}
 
+/* Font Awesome icons */
 .fa {
   font-size: 2rem !important;
+}
+.fa:hover {
+  cursor: pointer;
+  color: #b7dffc;
 }

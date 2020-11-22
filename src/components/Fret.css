@@ -26,6 +26,11 @@
   -ms-user-select: none;
 }
 
+/* Open notes */
+.fret:first-child > .note:first-of-type:hover {
+  cursor: pointer;
+}
+
 /* Guitar neck */
 .fret:first-child {
   flex: 0.7;
