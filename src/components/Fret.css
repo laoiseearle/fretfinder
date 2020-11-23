@@ -7,6 +7,7 @@
 
 .fret {
   flex: 1;
+  border-width: 0;
   border-bottom: 0.4rem solid;
   border-image: linear-gradient(to bottom, #000000, #bfcefa, #000000) 0 0 100;
   background-color: #eaeaf5;
