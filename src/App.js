@@ -6,6 +6,7 @@ import './App.css';
 
 function App() {
   const [flattenPitch, setFlattenPitch] = useState(true);
+  const [openMenu, setOpenMenu] = useState(true);
 
   const togglePitch = () => {
     setFlattenPitch(!flattenPitch);
@@ -13,7 +14,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header togglePitch={togglePitch} flattenPitch={flattenPitch} />
+      <Header openMenu={openMenu} setOpenMenu={setOpenMenu} togglePitch={togglePitch} flattenPitch={flattenPitch} />
       <Fretboard flattenPitch={flattenPitch} />
     </div>
   );
