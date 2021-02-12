@@ -2,10 +2,11 @@ import React from 'react';
 import Fret from './Fret';
 import './String.css';
 
-function String({ openNote, updateTuning, string, flattenPitch }) {
+function String({ openNote, updateTuning, string, flattenPitch, useFlats }) {
   const fretNums = 13;
-  const notesArray = ['C', 'Db', 'D', 'Eb', 'E', 'F', 'Gb', 'G', 'Ab', 'A', 'Bb', 'B'];
-  // const notesArraySharp = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
+  const notesArrayFlat = ['C', 'Db', 'D', 'Eb', 'E', 'F', 'Gb', 'G', 'Ab', 'A', 'Bb', 'B'];
+  const notesArraySharp = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
+  const notesArray = useFlats ? notesArrayFlat : notesArraySharp;
   let note = openNote;
 
   return (

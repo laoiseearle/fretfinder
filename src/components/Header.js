@@ -1,15 +1,7 @@
 import React from 'react';
 import './Header.css';
 
-function Header({ openMenu, setOpenMenu, togglePitch, flattenPitch }) {
-  const changePitchDir = () => {
-    togglePitch();
-  };
-
-  const changeMenu = () => {
-    setOpenMenu(!openMenu);
-  };
-
+function Header({ openMenu, setOpenMenu, togglePitch, toggleAccidentals, flattenPitch }) {
   return (
     <header>
       <h1 className="header-title">FretFinder</h1>
@@ -17,12 +9,12 @@ function Header({ openMenu, setOpenMenu, togglePitch, flattenPitch }) {
       <div className="pitch-direction">
         <i
           className={`fa ${flattenPitch ? 'fa-arrow-circle-down' : 'fa-arrow-circle-up'}`}
-          onClick={changePitchDir}
+          onClick={() => togglePitch()}
         ></i>
       </div>
 
       <div className="settings">
-        <i className="fa fa-cog" onClick={changeMenu}></i>
+        <i className="fa fa-cog" onClick={() => setOpenMenu(!openMenu)}></i>
         <div
           className="settings-menu"
           onClick={() => setOpenMenu(false)}
@@ -41,11 +33,11 @@ function Header({ openMenu, setOpenMenu, togglePitch, flattenPitch }) {
             <div className="menu-item">
               <h3>Accidentals</h3>
               <div className="radio-button">
-                <input type="radio" name="accidental" id="flat" checked />
-                <label for="flat">Flat</label>
+                <input type="radio" name="accidental" id="flat" onChange={() => toggleAccidentals()} defaultChecked />
+                <label htmlFor="flat">Flat</label>
 
-                <input type="radio" name="accidental" id="sharp" />
-                <label for="sharp">Sharp</label>
+                <input type="radio" name="accidental" id="sharp" onChange={() => toggleAccidentals()} />
+                <label htmlFor="sharp">Sharp</label>
               </div>
             </div>
 
@@ -54,10 +46,10 @@ function Header({ openMenu, setOpenMenu, togglePitch, flattenPitch }) {
 
               <div className="radio-button">
                 <input type="radio" name="hand" id="left" />
-                <label for="left">Left</label>
+                <label htmlFor="left">Left</label>
 
                 <input type="radio" name="hand" id="right" checked />
-                <label for="right">Right</label>
+                <label htmlFor="right">Right</label>
               </div>
             </div>
 

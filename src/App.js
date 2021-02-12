@@ -6,16 +6,26 @@ import './App.css';
 
 function App() {
   const [flattenPitch, setFlattenPitch] = useState(true);
-  const [openMenu, setOpenMenu] = useState(true);
+  const [openMenu, setOpenMenu] = useState(false);
+  const [useFlats, setUseFlats] = useState(true);
 
   const togglePitch = () => {
     setFlattenPitch(!flattenPitch);
   };
+  const toggleAccidentals = () => {
+    setUseFlats(!useFlats);
+  };
 
   return (
     <div className="App">
-      <Header openMenu={openMenu} setOpenMenu={setOpenMenu} togglePitch={togglePitch} flattenPitch={flattenPitch} />
-      <Fretboard flattenPitch={flattenPitch} />
+      <Header
+        openMenu={openMenu}
+        setOpenMenu={setOpenMenu}
+        togglePitch={togglePitch}
+        toggleAccidentals={toggleAccidentals}
+        flattenPitch={flattenPitch}
+      />
+      <Fretboard flattenPitch={flattenPitch} useFlats={useFlats} />
     </div>
   );
 }
