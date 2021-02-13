@@ -1,14 +1,22 @@
 import React from 'react';
 import './Header.css';
 
-function Header({ openMenu, setOpenMenu, togglePitch, toggleAccidentals, flattenPitch }) {
+function Header({
+  openMenu,
+  setOpenMenu,
+  togglePitch,
+  toggleAccidentals,
+  flattenPitch,
+}) {
   return (
     <header>
       <h1 className="header-title">FretFinder</h1>
 
       <div className="pitch-direction">
         <i
-          className={`fa ${flattenPitch ? 'fa-arrow-circle-down' : 'fa-arrow-circle-up'}`}
+          className={`fa ${
+            flattenPitch ? 'fa-arrow-circle-down' : 'fa-arrow-circle-up'
+          }`}
           onClick={() => togglePitch()}
         ></i>
       </div>
@@ -33,10 +41,21 @@ function Header({ openMenu, setOpenMenu, togglePitch, toggleAccidentals, flatten
             <div className="menu-item">
               <h3>Accidentals</h3>
               <div className="radio-button">
-                <input type="radio" name="accidental" id="flat" onChange={() => toggleAccidentals()} defaultChecked />
+                <input
+                  type="radio"
+                  name="accidental"
+                  id="flat"
+                  onChange={() => toggleAccidentals()}
+                  defaultChecked
+                />
                 <label htmlFor="flat">Flat</label>
 
-                <input type="radio" name="accidental" id="sharp" onChange={() => toggleAccidentals()} />
+                <input
+                  type="radio"
+                  name="accidental"
+                  id="sharp"
+                  onChange={() => toggleAccidentals()}
+                />
                 <label htmlFor="sharp">Sharp</label>
               </div>
             </div>

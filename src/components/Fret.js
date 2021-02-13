@@ -50,7 +50,11 @@ function Fret({ note, index, updateTuning, notesArray, string, flattenPitch }) {
 
   return (
     <div className="fret">
-      <div className="note" style={{ backgroundColor: noteColor() }} onClick={changeNote}>
+      <div
+        className="note"
+        style={{ backgroundColor: noteColor() }}
+        onClick={changeNote}
+      >
         {note}
       </div>
     </div>
