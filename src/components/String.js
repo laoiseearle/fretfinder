@@ -34,10 +34,21 @@ function String({ openNote, updateTuning, string, flattenPitch, useFlats }) {
   ];
   const notesArray = useFlats ? notesArrayFlat : notesArraySharp;
   let note = openNote;
+  let openNoteIndex;
 
   return (
     <div className="string">
       {[...Array(fretNums)].map((val, index) => {
+        // Guitar neck
+        if (index === 0) {
+          // Find position of note when switching between accidental types
+          note.includes('#')
+            ? (openNoteIndex = notesArraySharp.indexOf(note))
+            : (openNoteIndex = notesArrayFlat.indexOf(note));
+
+          note = notesArray[openNoteIndex];
+        }
+
         if (index !== 0) {
           const noteIndex = notesArray.indexOf(note);
           note = notesArray[(noteIndex + 1) % notesArray.length];
