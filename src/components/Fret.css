@@ -26,9 +26,7 @@
   -moz-user-select: none;
   -ms-user-select: none;
 }
-
-/* Open notes */
-.fret:first-child > .note:first-of-type:hover {
+.note:hover {
   cursor: pointer;
 }
 

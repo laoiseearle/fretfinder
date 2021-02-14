@@ -5,6 +5,7 @@ import './Fretboard.css';
 function Fretboard({ flattenPitch, useFlats }) {
   const initialTuning = ['E', 'A', 'D', 'G', 'B', 'E'];
   const [tuning, setTuning] = useState(initialTuning);
+  const [focusedNote, setFocusedNote] = useState(-1);
 
   const updateTuning = (string, newNote) => {
     const newTuning = [...tuning];
@@ -12,6 +13,14 @@ function Fretboard({ flattenPitch, useFlats }) {
     setTuning(newTuning);
   };
 
+  const highlightNotes = note => {
+    setFocusedNote(note);
+
+    // Reset highlight after clicking twice
+    if (note === focusedNote) {
+      setFocusedNote(-1);
+    }
+  };
   return (
     <main>
       <section className="fretboard">
@@ -23,6 +32,8 @@ function Fretboard({ flattenPitch, useFlats }) {
             updateTuning={updateTuning}
             flattenPitch={flattenPitch}
             useFlats={useFlats}
+            focusedNote={focusedNote}
+            highlightNotes={highlightNotes}
           />
         ))}
       </section>

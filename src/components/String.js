@@ -2,7 +2,15 @@ import React from 'react';
 import Fret from './Fret';
 import './String.css';
 
-function String({ openNote, updateTuning, string, flattenPitch, useFlats }) {
+function String({
+  openNote,
+  updateTuning,
+  string,
+  flattenPitch,
+  useFlats,
+  focusedNote,
+  highlightNotes,
+}) {
   const fretNums = 13;
   const notesArrayFlat = [
     'C',
@@ -39,7 +47,7 @@ function String({ openNote, updateTuning, string, flattenPitch, useFlats }) {
   return (
     <div className="string">
       {[...Array(fretNums)].map((val, index) => {
-        // Guitar neck
+        // Open Note
         if (index === 0) {
           // Find position of note when switching between accidental types
           note.includes('#')
@@ -63,6 +71,8 @@ function String({ openNote, updateTuning, string, flattenPitch, useFlats }) {
             updateTuning={updateTuning}
             notesArray={notesArray}
             flattenPitch={flattenPitch}
+            focusedNote={focusedNote}
+            highlightNotes={highlightNotes}
           />
         );
       })}

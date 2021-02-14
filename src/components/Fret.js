@@ -1,7 +1,16 @@
 import React from 'react';
 import './Fret.css';
 
-function Fret({ note, index, updateTuning, notesArray, string, flattenPitch }) {
+function Fret({
+  note,
+  index,
+  updateTuning,
+  notesArray,
+  string,
+  flattenPitch,
+  focusedNote,
+  highlightNotes,
+}) {
   const noteIndex = notesArray.indexOf(note);
 
   const flattenNote = () => {
@@ -13,9 +22,11 @@ function Fret({ note, index, updateTuning, notesArray, string, flattenPitch }) {
     updateTuning(string, notesArray[(noteIndex + 1) % notesArray.length]);
   };
 
-  const changeNote = () => {
+  const clickNote = () => {
     if (index === 0) {
       flattenPitch ? flattenNote() : sharpenNote();
+    } else {
+      highlightNotes(noteIndex);
     }
   };
 
@@ -48,12 +59,23 @@ function Fret({ note, index, updateTuning, notesArray, string, flattenPitch }) {
     }
   };
 
+  const noteDisplay = () => {
+    if (focusedNote === noteIndex || focusedNote === -1 || index === 0) {
+      return 'flex';
+    } else {
+      return 'none';
+    }
+  };
+
   return (
     <div className="fret">
       <div
         className="note"
-        style={{ backgroundColor: noteColor() }}
-        onClick={changeNote}
+        style={{
+          backgroundColor: noteColor(),
+          display: noteDisplay(),
+        }}
+        onClick={() => clickNote()}
       >
         {note}
       </div>
