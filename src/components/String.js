@@ -2,7 +2,7 @@ import React from 'react';
 import Fret from './Fret';
 import './String.css';
 
-function String({
+const String = ({
   openNote,
   updateTuning,
   string,
@@ -10,8 +10,8 @@ function String({
   useFlats,
   focusedNote,
   highlightNotes,
-}) {
-  const fretNums = 13;
+}) => {
+  const fretNums = 12;
   const notesArrayFlat = [
     'C',
     'Db',
@@ -46,7 +46,7 @@ function String({
 
   return (
     <div className="string">
-      {[...Array(fretNums)].map((val, index) => {
+      {[...Array(fretNums + 1)].map((val, index) => {
         // Open Note
         if (index === 0) {
           // Find position of note when switching between accidental types
@@ -55,9 +55,7 @@ function String({
             : (openNoteIndex = notesArrayFlat.indexOf(note));
 
           note = notesArray[openNoteIndex];
-        }
-
-        if (index !== 0) {
+        } else {
           const noteIndex = notesArray.indexOf(note);
           note = notesArray[(noteIndex + 1) % notesArray.length];
         }
@@ -78,6 +76,6 @@ function String({
       })}
     </div>
   );
-}
+};
 
 export default String;

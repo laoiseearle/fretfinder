@@ -30,7 +30,7 @@
   cursor: pointer;
 }
 
-/* Guitar neck */
+/* Guitar nut */
 .fret:first-child {
   flex: 0.7;
   background-color: #021527;
@@ -73,14 +73,13 @@
     border-bottom: none;
   }
 
-  /* Guitar neck */
+  /* Guitar nut */
   .fret:first-child {
     flex: 0.5;
-    border-bottom: none;
-    border-right: 0.5rem solid #031f3a;
   }
 
-  /* Guitar bridge */
+  /* Guitar nut and bridge */
+  .fret:first-child,
   .fret:last-child {
     border-bottom: none;
     border-right: 0.5rem solid #031f3a;

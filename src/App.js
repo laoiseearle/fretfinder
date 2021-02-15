@@ -4,7 +4,7 @@ import Fretboard from './components/Fretboard';
 import 'font-awesome/css/font-awesome.min.css';
 import './App.css';
 
-function App() {
+const App = () => {
   const [flattenPitch, setFlattenPitch] = useState(true);
   const [openMenu, setOpenMenu] = useState(false);
   const [useFlats, setUseFlats] = useState(true);
@@ -25,9 +25,11 @@ function App() {
         toggleAccidentals={toggleAccidentals}
         flattenPitch={flattenPitch}
       />
-      <Fretboard flattenPitch={flattenPitch} useFlats={useFlats} />
+      <main>
+        <Fretboard flattenPitch={flattenPitch} useFlats={useFlats} />
+      </main>
     </div>
   );
-}
+};
 
 export default App;

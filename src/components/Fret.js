@@ -1,7 +1,7 @@
 import React from 'react';
 import './Fret.css';
 
-function Fret({
+const Fret = ({
   note,
   index,
   updateTuning,
@@ -10,7 +10,7 @@ function Fret({
   flattenPitch,
   focusedNote,
   highlightNotes,
-}) {
+}) => {
   const noteIndex = notesArray.indexOf(note);
 
   const flattenNote = () => {
@@ -81,6 +81,6 @@ function Fret({
       </div>
     </div>
   );
-}
+};
 
 export default Fret;
