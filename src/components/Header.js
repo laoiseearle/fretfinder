@@ -6,6 +6,7 @@ function Header({
   setOpenMenu,
   togglePitch,
   toggleAccidentals,
+  toggleHand,
   flattenPitch,
 }) {
   return (
@@ -64,10 +65,21 @@ function Header({
               <h3>Hand</h3>
 
               <div className="radio-button">
-                <input type="radio" name="hand" id="left" />
+                <input
+                  type="radio"
+                  name="hand"
+                  id="left"
+                  onChange={() => toggleHand()}
+                />
                 <label htmlFor="left">Left</label>
 
-                <input type="radio" name="hand" id="right" checked />
+                <input
+                  type="radio"
+                  name="hand"
+                  id="right"
+                  defaultChecked
+                  onChange={() => toggleHand()}
+                />
                 <label htmlFor="right">Right</label>
               </div>
             </div>

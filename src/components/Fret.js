@@ -10,6 +10,7 @@ const Fret = ({
   flattenPitch,
   focusedNote,
   highlightNotes,
+  rightHanded,
 }) => {
   const noteIndex = notesArray.indexOf(note);
 
@@ -68,7 +69,7 @@ const Fret = ({
   };
 
   return (
-    <div className="fret">
+    <div className={rightHanded ? 'fret' : 'fret fret-left-handed'}>
       <div
         className="note"
         style={{

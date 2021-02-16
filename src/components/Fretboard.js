@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import String from './String';
 import './Fretboard.css';
 
-const Fretboard = ({ flattenPitch, useFlats }) => {
+const Fretboard = ({ flattenPitch, useFlats, rightHanded }) => {
   const initialTuning = ['E', 'A', 'D', 'G', 'B', 'E'];
   const [tuning, setTuning] = useState(initialTuning);
   const [focusedNote, setFocusedNote] = useState(-1);
@@ -22,7 +22,7 @@ const Fretboard = ({ flattenPitch, useFlats }) => {
     }
   };
   return (
-    <section className="fretboard">
+    <section className={rightHanded ? 'fretboard' : 'fretboard left-handed'}>
       {tuning.map((val, index) => (
         <String
           openNote={val}
@@ -33,6 +33,7 @@ const Fretboard = ({ flattenPitch, useFlats }) => {
           useFlats={useFlats}
           focusedNote={focusedNote}
           highlightNotes={highlightNotes}
+          rightHanded={rightHanded}
         />
       ))}
     </section>

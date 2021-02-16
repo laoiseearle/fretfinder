@@ -10,6 +10,7 @@ const String = ({
   useFlats,
   focusedNote,
   highlightNotes,
+  rightHanded,
 }) => {
   const fretNums = 12;
   const notesArrayFlat = [
@@ -45,7 +46,7 @@ const String = ({
   let openNoteIndex;
 
   return (
-    <div className="string">
+    <div className={rightHanded ? 'string' : 'string string-left-handed'}>
       {[...Array(fretNums + 1)].map((val, index) => {
         // Open Note
         if (index === 0) {
@@ -71,6 +72,7 @@ const String = ({
             flattenPitch={flattenPitch}
             focusedNote={focusedNote}
             highlightNotes={highlightNotes}
+            rightHanded={rightHanded}
           />
         );
       })}

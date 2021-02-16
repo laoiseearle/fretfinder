@@ -20,6 +20,9 @@
   .string {
     flex-direction: row;
   }
+  .string-left-handed {
+    flex-direction: row-reverse;
+  }
   .string::before {
     height: 20%;
     width: 100%;
