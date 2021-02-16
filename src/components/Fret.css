@@ -12,6 +12,22 @@
   border-image: linear-gradient(to bottom, #000000, #bfcefa, #000000) 0 0 100;
   background-color: #eaeaf5;
 }
+
+.fret > .fret-num {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  right: 55px;
+  font-size: 1.5rem;
+  text-align: center;
+  color: #000000;
+}
+
+.fret-left-handed > .fret-num {
+  right: initial;
+  left: 50px;
+}
+
 .note {
   height: 35px;
   width: 35px;
@@ -94,6 +110,12 @@ End four corners of fretboard */
     border-right: 0.4rem solid;
     border-image: linear-gradient(to left, #000000, #bfcefa, #000000) 1 100;
     border-bottom: none;
+  }
+
+  .fret > .fret-num {
+    left: initial;
+    right: initial;
+    top: 50px;
   }
 
   /* Guitar nut */

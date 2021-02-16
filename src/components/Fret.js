@@ -84,8 +84,15 @@ const Fret = ({
     }
   };
 
+  const displayFretNum = () => {
+    if (string === 0 && index !== 0) {
+      return <div className="fret-num">{index}</div>;
+    }
+  };
+
   return (
     <div className={rightHanded ? 'fret' : 'fret fret-left-handed'}>
+      {displayFretNum()}
       <div
         className="note"
         style={{
