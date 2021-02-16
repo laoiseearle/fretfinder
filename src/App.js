@@ -5,11 +5,13 @@ import 'font-awesome/css/font-awesome.min.css';
 import './App.css';
 
 const App = () => {
+  const initialTuning = ['E', 'A', 'D', 'G', 'B', 'E'];
   const [flattenPitch, setFlattenPitch] = useState(true);
   const [openMenu, setOpenMenu] = useState(false);
   const [useFlats, setUseFlats] = useState(true);
   const [rightHanded, setRightHanded] = useState(true);
   const [hideAccidentals, setHideAccidentals] = useState(false);
+  const [tuning, setTuning] = useState(initialTuning);
 
   const togglePitch = () => {
     setFlattenPitch(!flattenPitch);
@@ -27,6 +29,10 @@ const App = () => {
     setRightHanded(!rightHanded);
   };
 
+  const changeTuningFromPreset = preset => {
+    setTuning(preset);
+  };
+
   return (
     <div className="App">
       <Header
@@ -37,6 +43,7 @@ const App = () => {
         toggleHideAccidentals={toggleHideAccidentals}
         toggleHand={toggleHand}
         flattenPitch={flattenPitch}
+        changeTuningFromPreset={changeTuningFromPreset}
       />
       <main>
         <Fretboard
@@ -44,6 +51,8 @@ const App = () => {
           useFlats={useFlats}
           rightHanded={rightHanded}
           hideAccidentals={hideAccidentals}
+          tuning={tuning}
+          setTuning={setTuning}
         />
       </main>
     </div>

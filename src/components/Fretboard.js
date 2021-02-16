@@ -7,9 +7,9 @@ const Fretboard = ({
   useFlats,
   rightHanded,
   hideAccidentals,
+  tuning,
+  setTuning,
 }) => {
-  const initialTuning = ['E', 'A', 'D', 'G', 'B', 'E'];
-  const [tuning, setTuning] = useState(initialTuning);
   const [focusedNote, setFocusedNote] = useState(-1);
 
   const updateTuning = (string, newNote) => {

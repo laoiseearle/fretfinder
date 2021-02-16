@@ -9,7 +9,12 @@ function Header({
   toggleHideAccidentals,
   toggleHand,
   flattenPitch,
+  changeTuningFromPreset,
 }) {
+  const tuningPreset = tuning => {
+    changeTuningFromPreset(tuning);
+  };
+
   return (
     <header>
       <h1 className="header-title">FretFinder</h1>
@@ -111,8 +116,18 @@ function Header({
               <h3>Tuning Presets</h3>
 
               <div className="tuning-presets">
-                <button type="button">Standard</button>
-                <button type="button">Drop-D</button>
+                <button
+                  type="button"
+                  onClick={() => tuningPreset(['E', 'A', 'D', 'G', 'B', 'E'])}
+                >
+                  Standard
+                </button>
+                <button
+                  type="button"
+                  onClick={() => tuningPreset(['D', 'A', 'D', 'G', 'B', 'E'])}
+                >
+                  Drop-D
+                </button>
               </div>
             </div>
           </div>
