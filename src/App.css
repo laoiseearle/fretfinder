@@ -1,0 +1,24 @@
+html {
+  font-size: 14px;
+  color: #fff;
+}
+
+.App {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  max-height: 100vh;
+  max-width: 100vw;
+  background-color: #0e5394;
+  touch-action: manipulation;
+}
+main {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  height: 85%;
+  width: 100%;
+  top: 15%;
+  background-color: #0e5394;
+  padding: 0 2%;
+}

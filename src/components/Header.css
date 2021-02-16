@@ -1,0 +1,98 @@
+header {
+  position: fixed;
+  display: flex;
+  height: 12%;
+  width: 100%;
+  top: 0;
+  background-color: #0e5394;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 100;
+}
+.header-title {
+  font-size: 2.5rem;
+}
+.header-title:hover {
+  cursor: default;
+}
+.fa {
+  font-size: 2rem !important;
+  user-select: none;
+}
+.fa:hover {
+  cursor: pointer;
+  color: #b7dffc;
+}
+.menu-container,
+.settings-menu {
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  display: flex;
+}
+.menu-container {
+  position: relative;
+  height: 420px;
+  width: 270px;
+  background-color: rgb(255, 255, 255);
+  color: black;
+  font-size: 1.3rem;
+  border-radius: 2rem;
+  box-shadow: 5px 5px 10px 3px rgba(0, 0, 0, 0.705);
+}
+.menu-header > h2 {
+  position: relative;
+  font-family: 'Courier New', Courier, monospace;
+  letter-spacing: 0.2rem;
+}
+.settings-menu {
+  position: fixed;
+  width: 100%;
+  height: 90%;
+  top: 10%;
+  left: 0;
+  background-color: #0e5394b7;
+  text-align: center;
+}
+.radio-button {
+  display: flex;
+  width: 120px;
+  height: 40px;
+  border: 2px solid black;
+}
+.radio-button > input[type='radio'] {
+  display: none;
+}
+.radio-button > input[type='radio']:checked + label {
+  background-color: rgb(0, 12, 70);
+  color: white;
+}
+.radio-button > label {
+  background-color: rgb(224, 224, 224);
+  padding: 0.4rem;
+  color: rgb(84, 84, 84);
+  cursor: pointer;
+  flex: 1;
+}
+.radio-button > label:first-of-type {
+  border-right: 2px solid black;
+}
+
+.tuning-presets > button {
+  width: 80px;
+  height: 40px;
+  border: 2px solid white;
+  background-color: rgb(0, 12, 70);
+  color: white;
+  font-size: 1.3rem;
+}
+
+@media only screen and (min-width: 700px) {
+  .title {
+    font-size: 4.5rem;
+  }
+  .fa {
+    font-size: 2.5rem !important;
+    align-self: flex-end;
+  }
+}

@@ -1,0 +1,192 @@
+.fret,
+.note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fret {
+  flex: 1;
+  border-width: 0;
+  border-bottom: 0.4rem solid;
+  border-image: linear-gradient(to bottom, #000000, #bfcefa, #000000) 0 0 100;
+  background-color: #eaeaf5;
+}
+
+.fret > .fret-num {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  right: 55px;
+  font-size: 1.5rem;
+  text-align: center;
+  color: #000000;
+}
+
+.fret-left-handed > .fret-num {
+  right: initial;
+  left: 50px;
+}
+
+.note {
+  height: 35px;
+  width: 35px;
+  color: black;
+  border: 0.3rem solid rgb(0, 0, 0);
+  border-radius: 2rem;
+  z-index: 5;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+.note:hover {
+  cursor: pointer;
+}
+
+/* Guitar nut */
+.fret:first-child {
+  flex: 0.7;
+  background-color: #021527;
+  z-index: 4;
+}
+
+/* Guitar bridge */
+.fret:last-child {
+  border-image: none;
+  border-bottom: 0.5rem solid #031322;
+}
+
+/* Dark frets (3-5-7-9-12) */
+.fret:nth-child(4),
+.fret:nth-child(6),
+.fret:nth-child(8),
+.fret:nth-child(10),
+.fret:nth-child(13) {
+  background-color: #abb8db;
+}
+
+/* The four corners of the fretboard  
+Clockwise motion starting from top-left
+------------------------------------------- */
+.string:first-of-type > .fret:first-child {
+  border-top-left-radius: 1rem;
+}
+.string:last-child > .fret:first-child {
+  border-top-right-radius: 1rem;
+}
+.string:last-child > .fret:last-child {
+  border-bottom-right-radius: 1rem;
+}
+.string:first-of-type > .fret:last-child {
+  border-bottom-left-radius: 1rem;
+}
+
+/* Left handed */
+.string:last-child > .fret-left-handed:first-child {
+  border-top-right-radius: 0rem;
+  border-top-left-radius: 1rem;
+}
+.string:first-of-type > .fret-left-handed:first-child {
+  border-top-left-radius: 0rem;
+  border-top-right-radius: 1rem;
+}
+.string:first-of-type > .fret-left-handed:last-child {
+  border-bottom-left-radius: 0rem;
+  border-bottom-right-radius: 1rem;
+}
+.string:last-child > .fret-left-handed:last-child {
+  border-bottom-right-radius: 0rem;
+  border-bottom-left-radius: 1rem;
+}
+
+/* ----------------------------------------
+End four corners of fretboard */
+
+@media only screen and (min-width: 600px) {
+  .fret {
+    border-right: 0.4rem solid;
+    border-image: linear-gradient(to left, #000000, #bfcefa, #000000) 1 100;
+    border-bottom: none;
+  }
+
+  .fret > .fret-num {
+    left: initial;
+    right: initial;
+    top: 50px;
+  }
+
+  /* Guitar nut */
+  .fret:first-child {
+    flex: 0.5;
+  }
+
+  /* Guitar bridge */
+  .fret:last-child {
+    border-bottom: none;
+    border-right: 0.5rem solid #031f3a;
+  }
+
+  /* Reset right-handed border image */
+  .fret-left-handed,
+  .fret-left-handed:last-child {
+    border: none;
+    border-width: 0;
+  }
+
+  .fret-left-handed {
+    border-left: 0.4rem solid;
+    border-image: linear-gradient(to right, #000000, #bfcefa, #000000) 1 100;
+  }
+
+  /* Left handed guitar bridge */
+  .fret-left-handed:last-child {
+    border-left: 0.5rem solid #031f3a;
+  }
+
+  /* The four corners of the fretboard  
+  Clockwise motion starting from top-left
+  -------------------------------------------  */
+
+  .string:last-child > .fret:first-child {
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 0rem;
+  }
+  .string:last-child > .fret:last-child {
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 0rem;
+  }
+  .string:first-of-type > .fret:last-child {
+    border-bottom-right-radius: 1rem;
+    border-bottom-left-radius: 0rem;
+  }
+  .string:first-of-type > .fret:first-child {
+    border-bottom-left-radius: 1rem;
+    border-top-left-radius: 0rem;
+  }
+
+  /* Left handed */
+  .string:last-child > .fret-left-handed:last-child {
+    border-top-right-radius: 0rem;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 0rem;
+  }
+  .string:last-child > .fret-left-handed:first-child {
+    border-top-left-radius: 0rem;
+    border-top-right-radius: 1rem;
+  }
+  .string:first-of-type > .fret-left-handed:first-child {
+    border-bottom-left-radius: 0rem;
+    border-bottom-right-radius: 1rem;
+    border-top-right-radius: 0rem;
+  }
+  .string:first-of-type > .fret-left-handed:last-child {
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 0rem;
+  }
+
+  /* ----------------------------------------
+  End four corners of fretboard */
+}
