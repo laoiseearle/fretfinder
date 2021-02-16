@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/fretfinder/static/css/main.40c8ec50.chunk.css",
+    "main.js": "/fretfinder/static/js/main.c8a98be3.chunk.js",
+    "main.js.map": "/fretfinder/static/js/main.c8a98be3.chunk.js.map",
+    "runtime-main.js": "/fretfinder/static/js/runtime-main.a3c132da.js",
+    "runtime-main.js.map": "/fretfinder/static/js/runtime-main.a3c132da.js.map",
+    "static/css/2.37dbfa43.chunk.css": "/fretfinder/static/css/2.37dbfa43.chunk.css",
+    "static/js/2.2cf03174.chunk.js": "/fretfinder/static/js/2.2cf03174.chunk.js",
+    "static/js/2.2cf03174.chunk.js.map": "/fretfinder/static/js/2.2cf03174.chunk.js.map",
+    "index.html": "/fretfinder/index.html",
+    "precache-manifest.e07bdf3b5577d0ab0fce27e958dee008.js": "/fretfinder/precache-manifest.e07bdf3b5577d0ab0fce27e958dee008.js",
+    "service-worker.js": "/fretfinder/service-worker.js",
+    "static/css/2.37dbfa43.chunk.css.map": "/fretfinder/static/css/2.37dbfa43.chunk.css.map",
+    "static/css/main.40c8ec50.chunk.css.map": "/fretfinder/static/css/main.40c8ec50.chunk.css.map",
+    "static/js/2.2cf03174.chunk.js.LICENSE.txt": "/fretfinder/static/js/2.2cf03174.chunk.js.LICENSE.txt",
+    "static/media/font-awesome.min.css": "/fretfinder/static/media/fontawesome-webfont.fee66e71.woff"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a3c132da.js",
+    "static/css/2.37dbfa43.chunk.css",
+    "static/js/2.2cf03174.chunk.js",
+    "static/css/main.40c8ec50.chunk.css",
+    "static/js/main.c8a98be3.chunk.js"
+  ]
+}
