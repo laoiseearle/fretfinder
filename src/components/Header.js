@@ -6,6 +6,7 @@ function Header({
   setOpenMenu,
   togglePitch,
   toggleAccidentals,
+  toggleHideAccidentals,
   toggleHand,
   flattenPitch,
 }) {
@@ -58,6 +59,28 @@ function Header({
                   onChange={() => toggleAccidentals()}
                 />
                 <label htmlFor="sharp">Sharp</label>
+              </div>
+            </div>
+
+            <div className="menu-item">
+              <h3>Hide Accidentals</h3>
+              <div className="radio-button">
+                <input
+                  type="radio"
+                  name="hide-accidental"
+                  id="hide-acc"
+                  onChange={() => toggleHideAccidentals()}
+                />
+                <label htmlFor="hide-acc">Yes</label>
+
+                <input
+                  type="radio"
+                  name="hide-accidental"
+                  id="show-acc"
+                  defaultChecked
+                  onChange={() => toggleHideAccidentals()}
+                />
+                <label htmlFor="show-acc">No</label>
               </div>
             </div>
 

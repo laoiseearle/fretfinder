@@ -2,7 +2,12 @@ import React, { useState } from 'react';
 import String from './String';
 import './Fretboard.css';
 
-const Fretboard = ({ flattenPitch, useFlats, rightHanded }) => {
+const Fretboard = ({
+  flattenPitch,
+  useFlats,
+  rightHanded,
+  hideAccidentals,
+}) => {
   const initialTuning = ['E', 'A', 'D', 'G', 'B', 'E'];
   const [tuning, setTuning] = useState(initialTuning);
   const [focusedNote, setFocusedNote] = useState(-1);
@@ -34,6 +39,7 @@ const Fretboard = ({ flattenPitch, useFlats, rightHanded }) => {
           focusedNote={focusedNote}
           highlightNotes={highlightNotes}
           rightHanded={rightHanded}
+          hideAccidentals={hideAccidentals}
         />
       ))}
     </section>

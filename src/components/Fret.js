@@ -11,6 +11,7 @@ const Fret = ({
   focusedNote,
   highlightNotes,
   rightHanded,
+  hideAccidentals,
 }) => {
   const noteIndex = notesArray.indexOf(note);
 
@@ -19,6 +20,7 @@ const Fret = ({
       ? updateTuning(string, notesArray[notesArray.length - 1])
       : updateTuning(string, notesArray[noteIndex - 1]);
   };
+
   const sharpenNote = () => {
     updateTuning(string, notesArray[(noteIndex + 1) % notesArray.length]);
   };
@@ -61,7 +63,21 @@ const Fret = ({
   };
 
   const noteDisplay = () => {
-    if (focusedNote === noteIndex || focusedNote === -1 || index === 0) {
+    // Always display open notes
+    if (index === 0) {
+      return 'flex';
+    }
+
+    if (hideAccidentals && note.length >= 2) {
+      // Don't hide focused accidental after changing settings
+      if (focusedNote === noteIndex) {
+        return 'flex';
+      } else {
+        return 'none';
+      }
+    }
+
+    if (focusedNote === noteIndex || focusedNote === -1) {
       return 'flex';
     } else {
       return 'none';

@@ -11,6 +11,7 @@ const String = ({
   focusedNote,
   highlightNotes,
   rightHanded,
+  hideAccidentals,
 }) => {
   const fretNums = 12;
   const notesArrayFlat = [
@@ -73,6 +74,7 @@ const String = ({
             focusedNote={focusedNote}
             highlightNotes={highlightNotes}
             rightHanded={rightHanded}
+            hideAccidentals={hideAccidentals}
           />
         );
       })}

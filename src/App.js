@@ -9,12 +9,18 @@ const App = () => {
   const [openMenu, setOpenMenu] = useState(false);
   const [useFlats, setUseFlats] = useState(true);
   const [rightHanded, setRightHanded] = useState(true);
+  const [hideAccidentals, setHideAccidentals] = useState(false);
 
   const togglePitch = () => {
     setFlattenPitch(!flattenPitch);
   };
+
   const toggleAccidentals = () => {
     setUseFlats(!useFlats);
+  };
+
+  const toggleHideAccidentals = () => {
+    setHideAccidentals(!hideAccidentals);
   };
 
   const toggleHand = () => {
@@ -28,6 +34,7 @@ const App = () => {
         setOpenMenu={setOpenMenu}
         togglePitch={togglePitch}
         toggleAccidentals={toggleAccidentals}
+        toggleHideAccidentals={toggleHideAccidentals}
         toggleHand={toggleHand}
         flattenPitch={flattenPitch}
       />
@@ -36,6 +43,7 @@ const App = () => {
           flattenPitch={flattenPitch}
           useFlats={useFlats}
           rightHanded={rightHanded}
+          hideAccidentals={hideAccidentals}
         />
       </main>
     </div>
