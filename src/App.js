@@ -12,6 +12,7 @@ const App = () => {
   const [rightHanded, setRightHanded] = useState(true);
   const [hideAccidentals, setHideAccidentals] = useState(false);
   const [tuning, setTuning] = useState(initialTuning);
+  const [fretNumSettings, setFretNumSettings] = useState('inlays');
 
   const togglePitch = () => {
     setFlattenPitch(!flattenPitch);
@@ -33,6 +34,10 @@ const App = () => {
     setTuning(preset);
   };
 
+  const changeFretNums = fretSetting => {
+    setFretNumSettings(fretSetting);
+  };
+
   return (
     <div className="App">
       <Header
@@ -44,6 +49,7 @@ const App = () => {
         toggleHand={toggleHand}
         flattenPitch={flattenPitch}
         changeTuningFromPreset={changeTuningFromPreset}
+        changeFretNums={changeFretNums}
       />
       <main>
         <Fretboard
@@ -53,6 +59,7 @@ const App = () => {
           hideAccidentals={hideAccidentals}
           tuning={tuning}
           setTuning={setTuning}
+          fretNumSettings={fretNumSettings}
         />
       </main>
     </div>

@@ -9,6 +9,7 @@ const Fretboard = ({
   hideAccidentals,
   tuning,
   setTuning,
+  fretNumSettings,
 }) => {
   const [focusedNote, setFocusedNote] = useState(-1);
 
@@ -40,6 +41,7 @@ const Fretboard = ({
           highlightNotes={highlightNotes}
           rightHanded={rightHanded}
           hideAccidentals={hideAccidentals}
+          fretNumSettings={fretNumSettings}
         />
       ))}
     </section>

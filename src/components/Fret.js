@@ -12,6 +12,7 @@ const Fret = ({
   highlightNotes,
   rightHanded,
   hideAccidentals,
+  fretNumSettings,
 }) => {
   const noteIndex = notesArray.indexOf(note);
 
@@ -85,9 +86,16 @@ const Fret = ({
   };
 
   const displayFretNum = () => {
-    if (string === 0 && index !== 0) {
-      return <div className="fret-num">{index}</div>;
+    if (string !== 0 || index === 0) {
+      return;
+    } else if (
+      fretNumSettings === 'off' ||
+      (fretNumSettings === 'inlays' &&
+        !Array.from([3, 5, 7, 9, 12]).includes(index))
+    ) {
+      return;
     }
+    return <div className="fret-num">{index}</div>;
   };
 
   return (

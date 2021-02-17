@@ -10,6 +10,7 @@ function Header({
   toggleHand,
   flattenPitch,
   changeTuningFromPreset,
+  changeFretNums,
 }) {
   const tuningPreset = tuning => {
     changeTuningFromPreset(tuning);
@@ -109,6 +110,37 @@ function Header({
                   onChange={() => toggleHand()}
                 />
                 <label htmlFor="right">Right</label>
+              </div>
+            </div>
+
+            <div className="menu-item">
+              <h3>Fret Numbers</h3>
+
+              <div className="radio-button">
+                <input
+                  type="radio"
+                  name="fret-nums"
+                  id="fret-nums-all"
+                  onChange={() => changeFretNums('all')}
+                />
+                <label htmlFor="fret-nums-all">All</label>
+
+                <input
+                  type="radio"
+                  name="fret-nums"
+                  id="fret-nums-inlays"
+                  defaultChecked
+                  onChange={() => changeFretNums('inlays')}
+                />
+                <label htmlFor="fret-nums-inlays">Inlays</label>
+
+                <input
+                  type="radio"
+                  name="fret-nums"
+                  id="fret-nums-off"
+                  onChange={() => changeFretNums('off')}
+                />
+                <label htmlFor="fret-nums-off">Off</label>
               </div>
             </div>
 
