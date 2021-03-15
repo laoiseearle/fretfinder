@@ -8,8 +8,8 @@
 .fret {
   flex: 1;
   border-width: 0;
-  border-bottom: 0.4rem solid;
-  border-image: linear-gradient(to bottom, #000000, #bfcefa, #000000) 0 0 100;
+  border-bottom: 0.35rem solid;
+  border-image: linear-gradient(to bottom, #000000, #48658d, #000000) 0 0 100;
   background-color: #eaeaf5;
 }
 
@@ -113,8 +113,8 @@ End four corners of fretboard */
 
 @media only screen and (min-width: 600px) {
   .fret {
-    border-right: 0.4rem solid;
-    border-image: linear-gradient(to left, #000000, #bfcefa, #000000) 1 100;
+    border-right: 0.35rem solid;
+    border-image: linear-gradient(to left, #000000, #48658d, #000000) 1 100;
     border-bottom: none;
   }
 
@@ -143,8 +143,8 @@ End four corners of fretboard */
   }
 
   .fret-left-handed {
-    border-left: 0.4rem solid;
-    border-image: linear-gradient(to right, #000000, #bfcefa, #000000) 1 100;
+    border-left: 0.35rem solid;
+    border-image: linear-gradient(to right, #000000, #48658d, #000000) 1 100;
   }
 
   /* Left handed guitar bridge */
