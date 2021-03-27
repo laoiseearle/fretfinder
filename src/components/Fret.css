@@ -35,8 +35,8 @@
 }
 
 .note {
-  height: 35px;
-  width: 35px;
+  height: 30px;
+  width: 30px;
   color: black;
   border: 0.3rem solid rgb(0, 0, 0);
   border-radius: 2rem;
@@ -111,7 +111,20 @@ Clockwise motion starting from top-left
 /* ----------------------------------------
 End four corners of fretboard */
 
+@media only screen and (min-width: 375px) {
+  .note {
+    height: 32px;
+    width: 32px;
+  }
+}
+
 @media only screen and (min-width: 600px) {
+  .note {
+    height: 28px;
+    width: 28px;
+    border: 0.25rem solid rgb(0, 0, 0);
+  }
+
   .fret {
     border-right: 0.35rem solid;
     border-image: linear-gradient(to left, #000000, #48658d, #000000) 1 100;
@@ -121,7 +134,7 @@ End four corners of fretboard */
   .fret > .fret-num {
     left: initial;
     right: initial;
-    top: 55px;
+    top: 45px;
   }
 
   /* Guitar nut */
@@ -195,4 +208,18 @@ End four corners of fretboard */
 
   /* ----------------------------------------
   End four corners of fretboard */
+}
+
+@media only screen and (min-width: 1000px) and (min-height: 500px) {
+  .note {
+    height: 35px;
+    width: 35px;
+    border: 0.35rem solid rgb(0, 0, 0);
+  }
+
+  .fret > .fret-num {
+    left: initial;
+    right: initial;
+    top: 55px;
+  }
 }
