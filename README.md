@@ -1,6 +1,6 @@
 # FretFinder
 
-<img src="https://user-images.githubusercontent.com/19372021/108099083-11b0ff00-707c-11eb-807c-3312237ef73f.png" height="800" /> 
+<img width="439" src="https://user-images.githubusercontent.com/19372021/116072041-84df7e80-a686-11eb-99cb-3c0e50050386.png">
 
 ## Project Description
 
