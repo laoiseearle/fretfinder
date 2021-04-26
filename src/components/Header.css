@@ -90,12 +90,12 @@ header {
   font-size: 1.3rem;
 }
 
-@media only screen and (min-width: 700px) {
-  .title {
-    font-size: 4.5rem;
+@media only screen and (min-width: 600px) {
+  .header-title {
+    font-size: 3.5rem;
+    width: 50%;
   }
   .fa {
     font-size: 2.5rem !important;
-    align-self: flex-end;
   }
 }
