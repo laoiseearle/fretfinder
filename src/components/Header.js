@@ -165,10 +165,6 @@ function Header({
           </div>
         </div>
       </div>
-
-      <div className="help">
-        <i className="fa fa-question-circle"></i>
-      </div>
     </header>
   );
 }
