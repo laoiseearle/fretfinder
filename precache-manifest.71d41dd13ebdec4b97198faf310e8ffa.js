@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "ba4d1d0130a32da9906e5f38e22121a0",
+    "revision": "d01fd79162675df22c9abdef9a77ae4d",
     "url": "/fretfinder/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/fretfinder/static/css/2.37dbfa43.chunk.css"
   },
   {
-    "revision": "f6e01d787c0e0733bc71",
-    "url": "/fretfinder/static/css/main.40c8ec50.chunk.css"
+    "revision": "59163e5266e0ff1032ed",
+    "url": "/fretfinder/static/css/main.444c1233.chunk.css"
   },
   {
     "revision": "2c96ab1b7ff8e2558db5",
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/fretfinder/static/js/2.2cf03174.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "f6e01d787c0e0733bc71",
-    "url": "/fretfinder/static/js/main.c8a98be3.chunk.js"
+    "revision": "59163e5266e0ff1032ed",
+    "url": "/fretfinder/static/js/main.a02d9833.chunk.js"
   },
   {
     "revision": "8b9d4a6c54a62ad35c3d",
