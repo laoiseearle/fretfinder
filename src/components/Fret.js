@@ -7,12 +7,9 @@ const Fret = ({
   updateTuning,
   notesArray,
   string,
-  flattenPitch,
   focusedNote,
   highlightNotes,
-  rightHanded,
-  hideAccidentals,
-  fretNumSettings,
+  menuSettings,
 }) => {
   const noteIndex = notesArray.indexOf(note);
 
@@ -28,7 +25,7 @@ const Fret = ({
 
   const clickNote = () => {
     if (index === 0) {
-      flattenPitch ? flattenNote() : sharpenNote();
+      menuSettings.flattenPitch ? flattenNote() : sharpenNote();
     } else {
       highlightNotes(noteIndex);
     }
@@ -69,7 +66,7 @@ const Fret = ({
       return 'flex';
     }
 
-    if (hideAccidentals && note.length >= 2) {
+    if (menuSettings.hideAccidentals && note.length >= 2) {
       // Don't hide focused accidental after changing settings
       if (focusedNote === noteIndex) {
         return 'flex';
@@ -89,8 +86,8 @@ const Fret = ({
     if (string !== 0 || index === 0) {
       return;
     } else if (
-      fretNumSettings === 'off' ||
-      (fretNumSettings === 'inlays' &&
+      menuSettings.fretNums === 'off' ||
+      (menuSettings.fretNums === 'inlays' &&
         !Array.from([3, 5, 7, 9, 12]).includes(index))
     ) {
       return;
@@ -99,7 +96,9 @@ const Fret = ({
   };
 
   return (
-    <div className={rightHanded ? 'fret' : 'fret fret-left-handed'}>
+    <div
+      className={menuSettings.rightHanded ? 'fret' : 'fret fret-left-handed'}
+    >
       {displayFretNum()}
       <div
         className="note"

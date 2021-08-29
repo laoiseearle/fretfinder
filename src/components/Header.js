@@ -4,13 +4,9 @@ import './Header.css';
 function Header({
   openMenu,
   setOpenMenu,
-  togglePitch,
-  toggleAccidentals,
-  toggleHideAccidentals,
-  toggleHand,
-  flattenPitch,
   changeTuningFromPreset,
-  changeFretNums,
+  setMenuSettings,
+  menuSettings,
 }) {
   const tuningPreset = tuning => {
     changeTuningFromPreset(tuning);
@@ -23,9 +19,16 @@ function Header({
       <div className="pitch-direction">
         <i
           className={`fa ${
-            flattenPitch ? 'fa-arrow-circle-down' : 'fa-arrow-circle-up'
+            menuSettings.flattenPitch
+              ? 'fa-arrow-circle-down'
+              : 'fa-arrow-circle-up'
           }`}
-          onClick={() => togglePitch()}
+          onClick={() =>
+            setMenuSettings({
+              ...menuSettings,
+              flattenPitch: !menuSettings.flattenPitch,
+            })
+          }
         ></i>
       </div>
 
@@ -53,7 +56,9 @@ function Header({
                   type="radio"
                   name="accidental"
                   id="flat"
-                  onChange={() => toggleAccidentals()}
+                  onChange={() =>
+                    setMenuSettings({ ...menuSettings, useFlats: true })
+                  }
                   defaultChecked
                 />
                 <label htmlFor="flat">Flat</label>
@@ -62,7 +67,9 @@ function Header({
                   type="radio"
                   name="accidental"
                   id="sharp"
-                  onChange={() => toggleAccidentals()}
+                  onChange={() =>
+                    setMenuSettings({ ...menuSettings, useFlats: false })
+                  }
                 />
                 <label htmlFor="sharp">Sharp</label>
               </div>
@@ -75,7 +82,9 @@ function Header({
                   type="radio"
                   name="hide-accidental"
                   id="hide-acc"
-                  onChange={() => toggleHideAccidentals()}
+                  onChange={() =>
+                    setMenuSettings({ ...menuSettings, hideAccidentals: true })
+                  }
                 />
                 <label htmlFor="hide-acc">Yes</label>
 
@@ -84,7 +93,9 @@ function Header({
                   name="hide-accidental"
                   id="show-acc"
                   defaultChecked
-                  onChange={() => toggleHideAccidentals()}
+                  onChange={() =>
+                    setMenuSettings({ ...menuSettings, hideAccidentals: false })
+                  }
                 />
                 <label htmlFor="show-acc">No</label>
               </div>
@@ -98,7 +109,9 @@ function Header({
                   type="radio"
                   name="hand"
                   id="left"
-                  onChange={() => toggleHand()}
+                  onChange={() =>
+                    setMenuSettings({ ...menuSettings, rightHanded: false })
+                  }
                 />
                 <label htmlFor="left">Left</label>
 
@@ -107,7 +120,9 @@ function Header({
                   name="hand"
                   id="right"
                   defaultChecked
-                  onChange={() => toggleHand()}
+                  onChange={() =>
+                    setMenuSettings({ ...menuSettings, rightHanded: true })
+                  }
                 />
                 <label htmlFor="right">Right</label>
               </div>
@@ -121,7 +136,9 @@ function Header({
                   type="radio"
                   name="fret-nums"
                   id="fret-nums-all"
-                  onChange={() => changeFretNums('all')}
+                  onChange={() =>
+                    setMenuSettings({ ...menuSettings, fretNums: 'all' })
+                  }
                 />
                 <label htmlFor="fret-nums-all">All</label>
 
@@ -130,7 +147,9 @@ function Header({
                   name="fret-nums"
                   id="fret-nums-inlays"
                   defaultChecked
-                  onChange={() => changeFretNums('inlays')}
+                  onChange={() =>
+                    setMenuSettings({ ...menuSettings, fretNums: 'inlays' })
+                  }
                 />
                 <label htmlFor="fret-nums-inlays">Inlays</label>
 
@@ -138,7 +157,9 @@ function Header({
                   type="radio"
                   name="fret-nums"
                   id="fret-nums-off"
-                  onChange={() => changeFretNums('off')}
+                  onChange={() =>
+                    setMenuSettings({ ...menuSettings, fretNums: 'off' })
+                  }
                 />
                 <label htmlFor="fret-nums-off">Off</label>
               </div>

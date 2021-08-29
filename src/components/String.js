@@ -6,13 +6,9 @@ const String = ({
   openNote,
   updateTuning,
   string,
-  flattenPitch,
-  useFlats,
   focusedNote,
   highlightNotes,
-  rightHanded,
-  hideAccidentals,
-  fretNumSettings,
+  menuSettings,
 }) => {
   const fretNums = 12;
   const notesArrayFlat = [
@@ -43,12 +39,16 @@ const String = ({
     'A#',
     'B',
   ];
-  const notesArray = useFlats ? notesArrayFlat : notesArraySharp;
+  const notesArray = menuSettings.useFlats ? notesArrayFlat : notesArraySharp;
   let note = openNote;
   let openNoteIndex;
 
   return (
-    <div className={rightHanded ? 'string' : 'string string-left-handed'}>
+    <div
+      className={
+        menuSettings.rightHanded ? 'string' : 'string string-left-handed'
+      }
+    >
       {[...Array(fretNums + 1)].map((val, index) => {
         // Open Note
         if (index === 0) {
@@ -71,12 +71,9 @@ const String = ({
             string={string}
             updateTuning={updateTuning}
             notesArray={notesArray}
-            flattenPitch={flattenPitch}
             focusedNote={focusedNote}
             highlightNotes={highlightNotes}
-            rightHanded={rightHanded}
-            hideAccidentals={hideAccidentals}
-            fretNumSettings={fretNumSettings}
+            menuSettings={menuSettings}
           />
         );
       })}
