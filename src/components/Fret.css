@@ -38,6 +38,7 @@
   height: 30px;
   width: 30px;
   color: black;
+  font-weight: 900;
   border: 0.3rem solid rgb(0, 0, 0);
   border-radius: 2rem;
   z-index: 5;
