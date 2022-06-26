@@ -1,5 +1,6 @@
 .fret,
-.note {
+.note,
+.fret-num {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -13,19 +14,15 @@
   background-color: #eaeaf5;
 }
 
-.fret > .fret-num {
+.fret-num {
   position: absolute;
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
   right: 55px;
   font-size: 1rem;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   color: white;
-  background-color: #021527;
-  border-radius: 50%;
+  background-color: #0215279b;
+  border-radius: 2rem;
   cursor: default;
 }
 
