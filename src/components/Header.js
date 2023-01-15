@@ -82,6 +82,7 @@ function Header({
                   type="radio"
                   name="hide-accidental"
                   id="hide-acc"
+                  defaultChecked
                   onChange={() =>
                     setMenuSettings({ ...menuSettings, hideAccidentals: true })
                   }
@@ -92,7 +93,6 @@ function Header({
                   type="radio"
                   name="hide-accidental"
                   id="show-acc"
-                  defaultChecked
                   onChange={() =>
                     setMenuSettings({ ...menuSettings, hideAccidentals: false })
                   }

@@ -12,7 +12,7 @@ const App = () => {
   const [menuSettings, setMenuSettings] = useState({
     useFlats: true,
     rightHanded: true,
-    hideAccidentals: false,
+    hideAccidentals: true,
     flattenPitch: true,
     fretNums: 'inlays',
   });
