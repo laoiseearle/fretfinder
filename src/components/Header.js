@@ -33,7 +33,10 @@ function Header({
       </div>
 
       <div className="settings">
-        <i className="fa fa-cog" onClick={() => setOpenMenu(!openMenu)}></i>
+        <i
+          className={`fa ${openMenu ? 'fa-times' : 'fa-cog'}`}
+          onClick={() => setOpenMenu(!openMenu)}
+        ></i>
         <div
           className="settings-menu"
           onClick={() => setOpenMenu(false)}

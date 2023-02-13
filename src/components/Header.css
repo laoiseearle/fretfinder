@@ -16,13 +16,23 @@ header {
   cursor: default;
 }
 .fa {
+  position: relative;
   font-size: 2rem !important;
   user-select: none;
 }
+.fa-times {
+  z-index: 10;
+  color: #001646c4;
+}
+
 .fa:hover {
   cursor: pointer;
   color: #b7dffc;
 }
+.fa-times:hover {
+  color: #0016469d;
+}
+
 .menu-container,
 .settings-menu {
   flex-direction: column;
@@ -98,4 +108,13 @@ header {
   .fa {
     font-size: 2.5rem !important;
   }
+
+  .fa-times {
+    color: #b7dffc;
+  }
+
+  .fa-times:hover {
+    color: #b7dffc;
+  }
+
 }
