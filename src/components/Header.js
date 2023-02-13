@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Header.css';
+import data from '../presets.json';
 
 function Header({
   openMenu,
@@ -8,7 +9,14 @@ function Header({
   setMenuSettings,
   menuSettings,
 }) {
-  const tuningPreset = tuning => {
+  const [instrument, setInstrument] = useState('guitar');
+
+  const instrumentPreset = (tuning, instrument) => {
+    setInstrument(instrument);
+    changeTuningFromPreset(tuning);
+  };
+
+  const test = tuning => {
     changeTuningFromPreset(tuning);
   };
 
@@ -48,12 +56,10 @@ function Header({
               e.stopPropagation();
             }}
           >
-            <div className="menu-header">
-              <h2>Settings</h2>
-            </div>
+            <h2>Fretboard</h2>
 
             <div className="menu-item">
-              <h3>Accidentals</h3>
+              <p>Accidental Type</p>
               <div className="radio-button">
                 <input
                   type="radio"
@@ -79,7 +85,7 @@ function Header({
             </div>
 
             <div className="menu-item">
-              <h3>Hide Accidentals</h3>
+              <p>Hide Accidentals</p>
               <div className="radio-button">
                 <input
                   type="radio"
@@ -105,7 +111,7 @@ function Header({
             </div>
 
             <div className="menu-item">
-              <h3>Hand</h3>
+              <p>Hand</p>
 
               <div className="radio-button">
                 <input
@@ -132,7 +138,7 @@ function Header({
             </div>
 
             <div className="menu-item">
-              <h3>Fret Numbers</h3>
+              <p>Fret Numbers</p>
 
               <div className="radio-button">
                 <input
@@ -168,22 +174,69 @@ function Header({
               </div>
             </div>
 
-            <div className="menu-item">
+            <div className="menu-item instrument">
+              <h3>Instrument</h3>
+
+              <div className="radio-button radio-button-instrument">
+                <input
+                  type="radio"
+                  name="instrument"
+                  id="guitar"
+                  defaultChecked
+                  onClick={() =>
+                    instrumentPreset(['E', 'A', 'D', 'G', 'B', 'E'], 'guitar')
+                  }
+                />
+
+                <label htmlFor="guitar">Guitar</label>
+
+                <input
+                  type="radio"
+                  name="instrument"
+                  id="bass"
+                  onClick={() => instrumentPreset(['E', 'A', 'D', 'G'], 'bass')}
+                />
+
+                <label htmlFor="bass">Bass</label>
+
+                <input
+                  type="radio"
+                  name="instrument"
+                  id="ukulele"
+                  onClick={() =>
+                    instrumentPreset(['G', 'C', 'E', 'A'], 'ukulele')
+                  }
+                />
+
+                <label htmlFor="ukulele">Ukulele</label>
+
+                <input
+                  type="radio"
+                  name="instrument"
+                  id="mandolin"
+                  onClick={() =>
+                    instrumentPreset(['G', 'D', 'A', 'E'], 'mandolin')
+                  }
+                />
+
+                <label htmlFor="mandolin">Mandolin</label>
+              </div>
+            </div>
+
+            <div className="menu-item tunings">
               <h3>Tuning Presets</h3>
 
               <div className="tuning-presets">
-                <button
-                  type="button"
-                  onClick={() => tuningPreset(['E', 'A', 'D', 'G', 'B', 'E'])}
-                >
-                  Standard
-                </button>
-                <button
-                  type="button"
-                  onClick={() => tuningPreset(['D', 'A', 'D', 'G', 'B', 'E'])}
-                >
-                  Drop-D
-                </button>
+                {data[instrument].map(preset => {
+                  const presetName = preset[0];
+                  const presetTuning = preset[1];
+
+                  return (
+                    <button type="button" onClick={() => test(presetTuning)}>
+                      {presetName}
+                    </button>
+                  );
+                })}
               </div>
             </div>
           </div>

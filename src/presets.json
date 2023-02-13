@@ -1,0 +1,34 @@
+{
+  "guitar": [
+    ["Standard", ["E", "A", "D", "G", "B", "E"]],
+    ["Drop-D", ["D", "A", "D", "G", "B", "E"]],
+    ["E-Flat", ["D#", "G#", "C#", "F#", "A#", "D#"]],
+    ["D Standard", ["D", "G", "C", "F", "A", "D"]],
+    ["DADGAD", ["D", "A", "D", "G", "A", "D"]],
+    ["DADFAD", ["D", "A", "D", "F", "A", "D"]],
+    ["Open-D", ["D", "A", "D", "F#", "A", "D"]],
+    ["Open-G", ["D", "G", "D", "G", "B", "D"]]
+  ],
+  "bass": [
+    ["Drop-D", ["D", "A", "D", "G"]],
+    ["E-Flat", ["D#", "G#", "C#", "F#"]],
+    ["D Standard", ["D", "G", "C", "F"]],
+    ["Drop-C", ["C", "G", "C", "F"]],
+    ["CADG", ["C", "A", "D", "G"]],
+    ["Drop-A", ["A", "E", "A", "D"]],
+    ["BEAD", ["B", "E", "A", "D"]],
+    ["CGCG", ["C", "G", "C", "Gs"]]
+  ],
+  "ukulele": [
+    ["Standard", ["G", "C", "E", "A"]],
+    ["Slack Key", ["G", "C", "E", "G"]],
+    ["D-Tuning", ["A", "D", "F#", "B"]],
+    ["Baritone", ["D", "G", "B", "E"]]
+  ],
+  "mandolin": [
+    ["Standard", ["G", "D", "A", "E"]],
+    ["Open-G", ["G", "D", "G", "B"]],
+    ["Open-D", ["D", "D", "A", "D"]],
+    ["High Bass", ["A", "E", "A", "E"]]
+  ]
+}
