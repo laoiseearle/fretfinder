@@ -39,7 +39,7 @@
   font-weight: 900;
   border: 0.3rem solid rgb(0, 0, 0);
   border-radius: 2rem;
-  z-index: 5;
+  z-index: 1;
   user-select: none;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -55,7 +55,7 @@
 .fret:first-child {
   flex: 0.7;
   background-color: #021527;
-  z-index: 4;
+  z-index: 0;
 }
 
 /* Guitar bridge */

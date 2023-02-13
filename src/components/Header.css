@@ -7,7 +7,7 @@ header {
   background-color: #0e5394;
   justify-content: space-around;
   align-items: center;
-  z-index: 100;
+  z-index: 2;
 }
 .header-title {
   font-size: 2.5rem;
