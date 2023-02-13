@@ -1,24 +1,25 @@
 # FretFinder
 
-<img width="439" src="https://user-images.githubusercontent.com/19372021/116072041-84df7e80-a686-11eb-99cb-3c0e50050386.png">
+<img width="435" alt="FretFinder on mobile" src="https://user-images.githubusercontent.com/19372021/218582302-2f755501-cd32-433c-ab82-a737657608c5.png">
 
 ## Project Description
 
-FretFinder is a web application that displays the fretboard notes of a guitar. It allows you to modify the tuning by clicking on an open string to change the note, making it useful as a visual reference for finding notes and chords while using alternate guitar tunings.
+FretFinder is a web application that displays fretboard notes of a guitar and other stringed instruments. It allows you to modify the tuning by clicking on an open string to quickly adjust the pitch, making it useful as a visual reference for finding notes and chords while using alternate tunings.
 
 ## Features
 
 - Click on an open string to adjust the pitch.
 - Toggle between Sharp and Flat accidentals.
 - Display or hide accidental types.
-- Click on a fretted note to highlight all notes with the same pitch.
-- Support for Left handed Guitars.
+- Click on a fretted note to highlight the same notes on different strings.
+- Support for left handed Guitars.
+- Tuning presets for Guitar, Bass, Ukulele and Mandolin
 
 ## Planned Features
 
-- Delete and add strings to the fretboard.
-- More tuning presets.
-- New instrument presets including Bass, Ukulele, 7-string Guitars etc.
+- Download a screenshot of the fretboard for offline use
+- Create a custom instrument with selected number of strings
+- Presets for 5-string Bass, 7-string Guitar and other stringed instruments.
 
 ## Live Demo
 
