@@ -75,11 +75,11 @@ header {
   display: none;
 }
 .radio-button > input[type='radio']:checked + label {
-  background-color: rgb(0, 12, 70);
+  background-color: #001646c4;
   color: white;
 }
 .radio-button > label {
-  background-color: rgb(224, 224, 224);
+  background-color: rgba(255, 255, 255, 0.292);
   padding: 0.4rem;
   color: rgb(84, 84, 84);
   cursor: pointer;

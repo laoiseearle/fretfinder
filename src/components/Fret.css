@@ -12,7 +12,7 @@
   border-width: 0;
   border-bottom: 0.35rem solid;
   border-image: linear-gradient(to bottom, #000000, #48658d, #000000) 0 0 100;
-  background-color: #eaeaf5;
+  background-color: #ffffffd2;
 }
 
 .fret-num {
@@ -70,7 +70,7 @@
 .fret:nth-child(8),
 .fret:nth-child(10),
 .fret:nth-child(13) {
-  background-color: #abb8db;
+  background-color: #ffffff53;
 }
 
 /* The four corners of the fretboard  
