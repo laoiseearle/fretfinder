@@ -19,7 +19,7 @@
   position: absolute;
   width: 30px;
   height: 30px;
-  right: 55px;
+  right: calc(100% + 1rem);
   font-size: 1rem;
   color: white;
   background-color: #0215279b;
@@ -28,8 +28,8 @@
 }
 
 .fret-left-handed > .fret-num {
-  right: initial;
-  left: 55px;
+  left: calc(100% + 1rem);
+  right: unset;
 }
 
 .note {
@@ -131,9 +131,9 @@ End four corners of fretboard */
   }
 
   .fret > .fret-num {
-    left: initial;
-    right: initial;
-    top: 45px;
+    left: unset;
+    right: unset;
+    top: calc(100% + 1rem);
   }
 
   /* Guitar nut */
@@ -214,11 +214,5 @@ End four corners of fretboard */
     height: 35px;
     width: 35px;
     border: 0.35rem solid rgb(0, 0, 0);
-  }
-
-  .fret > .fret-num {
-    left: initial;
-    right: initial;
-    top: 55px;
   }
 }
