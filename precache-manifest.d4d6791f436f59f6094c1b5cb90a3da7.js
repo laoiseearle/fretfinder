@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "d01fd79162675df22c9abdef9a77ae4d",
+    "revision": "5a4fdbe1d4995f83cffe099327c71280",
     "url": "/fretfinder/index.html"
   },
   {
-    "revision": "2c96ab1b7ff8e2558db5",
+    "revision": "538610f96273ebaeaabb",
     "url": "/fretfinder/static/css/2.37dbfa43.chunk.css"
   },
   {
-    "revision": "59163e5266e0ff1032ed",
-    "url": "/fretfinder/static/css/main.444c1233.chunk.css"
+    "revision": "078399bff45e1c75601b",
+    "url": "/fretfinder/static/css/main.56acceef.chunk.css"
   },
   {
-    "revision": "2c96ab1b7ff8e2558db5",
-    "url": "/fretfinder/static/js/2.2cf03174.chunk.js"
+    "revision": "538610f96273ebaeaabb",
+    "url": "/fretfinder/static/js/2.82784e7f.chunk.js"
   },
   {
     "revision": "e88a3e95b5364d46e95b35ae8c0dc27d",
-    "url": "/fretfinder/static/js/2.2cf03174.chunk.js.LICENSE.txt"
+    "url": "/fretfinder/static/js/2.82784e7f.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "59163e5266e0ff1032ed",
-    "url": "/fretfinder/static/js/main.a02d9833.chunk.js"
+    "revision": "078399bff45e1c75601b",
+    "url": "/fretfinder/static/js/main.f29693d7.chunk.js"
   },
   {
     "revision": "8b9d4a6c54a62ad35c3d",

@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/fretfinder/precache-manifest.71d41dd13ebdec4b97198faf310e8ffa.js"
+  "/fretfinder/precache-manifest.d4d6791f436f59f6094c1b5cb90a3da7.js"
 );
 
 self.addEventListener('message', (event) => {
