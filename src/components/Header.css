@@ -1,26 +1,35 @@
+/* ------- Header ------- */
+/* --------------------- */
+
 header {
   position: fixed;
   display: flex;
-  height: 12%;
-  width: 100%;
+  padding: 1.3rem 0;
   top: 0;
+  left: 0;
+  right: 0;
   background-color: #0e5394;
   justify-content: space-around;
   align-items: center;
   z-index: 2;
+  margin: auto;
 }
+
 .header-title {
   font-size: 2.5rem;
   font-family: 'Caveat', cursive;
 }
+
 .header-title:hover {
   cursor: default;
 }
+
 .fa {
   position: relative;
   font-size: 2rem !important;
   user-select: none;
 }
+
 .fa-times {
   z-index: 10;
   color: #001646c4;
@@ -34,78 +43,121 @@ header {
   color: #0016469d;
 }
 
-.menu-container,
-.settings-menu {
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-  display: flex;
-}
+/* ------- Settings ------- */
+/* ----------------------- */
+
 .menu-container {
-  position: relative;
-  height: 480px;
-  width: 270px;
-  background-color: rgb(255, 255, 255);
-  color: black;
-  font-size: 1.3rem;
-  border-radius: 2rem;
-  box-shadow: 5px 5px 10px 3px rgba(0, 0, 0, 0.705);
-}
-.menu-header > h2 {
-  position: relative;
-  font-family: 'Courier New', Courier, monospace;
-  letter-spacing: 0.2rem;
-}
-.settings-menu {
   position: fixed;
-  width: 100%;
-  height: 90%;
-  top: 10%;
-  left: 0;
-  background-color: #0e5394b7;
-  text-align: center;
+  inset: 0 0 0 0;
+  z-index: 3;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 9, 51);
+  font-size: 1.3rem;
+  padding: 1.8rem 3rem 0;
 }
+
+.menu-container h2 {
+  padding-bottom: 2rem;
+  letter-spacing: 0.1rem;
+  max-width: 400px;
+  margin: auto;
+}
+
+.menu-item p {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding-bottom: 1.3rem;
+  justify-content: space-between;
+  max-width: 400px;
+  margin: auto;
+}
+
+/* --- Radio Buttons --- */
+/* -------------------- */
+
 .radio-button {
   display: flex;
-  width: 170px;
-  height: 40px;
+  width: 135px;
   border: 2px solid black;
+  font-size: 1rem;
 }
+
 .radio-button > input[type='radio'] {
   display: none;
 }
+
 .radio-button > input[type='radio']:checked + label {
   background-color: #001646c4;
   color: white;
 }
+
 .radio-button > label {
   background-color: rgba(255, 255, 255, 0.292);
   padding: 0.4rem;
   color: rgb(84, 84, 84);
   cursor: pointer;
   flex: 1;
+  text-align: center;
 }
+
 .radio-button > label:first-of-type {
   border-right: 2px solid black;
 }
-.radio-button > :nth-of-type(3) {
+
+.radio-button > :nth-of-type(3),
+.radio-button > :nth-of-type(4) {
   border-left: 2px solid black;
 }
 
+/* --- Presets --- */
+/* -------------- */
+
+.instrument,
+.tunings {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.menu-item h3 {
+  font-size: 20px;
+  padding: 1rem 0;
+  letter-spacing: 0.1rem;
+}
+
+.radio-button-instrument {
+  height: 35px;
+  width: 100%;
+  max-width: 400px;
+  font-size: 0.9rem;
+}
+
+.tuning-presets {
+  width: 100%;
+  display: grid;
+  gap: 0.8rem;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
 .tuning-presets > button {
-  width: 80px;
   height: 40px;
-  border: 2px solid white;
-  background-color: rgb(0, 12, 70);
+  border: 2px solid black;
+  background-color: #001646c4;
   color: white;
-  font-size: 1.3rem;
+  font-size: 0.9rem;
+  cursor: pointer;
 }
 
 @media only screen and (min-width: 600px) {
   .header-title {
     font-size: 3.5rem;
-    width: 50%;
+    width: 70%;
   }
+
   .fa {
     font-size: 2.5rem !important;
   }
@@ -115,7 +167,22 @@ header {
   }
 
   .fa-times:hover {
-    color: #b7dffc;
+    color: #8eb4cf;
   }
 
+  /* Background Blur */
+
+  .settings-menu {
+    position: fixed;
+    inset: 0 0 0 0;
+    background-color: #0e5394af;
+  }
+
+  .menu-container {
+    margin: auto;
+    max-width: 450px;
+    max-height: 570px;
+    border-radius: 0.6rem;
+    box-shadow: 5px 5px 10px 3px rgba(0, 0, 0, 0.705);
+  }
 }

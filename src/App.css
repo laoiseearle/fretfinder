@@ -18,7 +18,7 @@ main {
   justify-content: center;
   height: 85%;
   width: 100%;
-  top: 15%;
+  margin-top: 8rem;
   background-color: #0e5394;
   padding: 0 2%;
 }
