@@ -158,10 +158,6 @@ h1:hover {
 }
 
 @media only screen and (min-width: 600px) {
-  header {
-    background-color: unset;
-  }
-
   .fa-times {
     color: #b7dffc;
   }
@@ -183,4 +179,10 @@ h1:hover {
     border-radius: 0.6rem;
     box-shadow: 5px 5px 10px 3px rgba(0, 0, 0, 0.705);
   } */
+}
+
+@media only screen and (min-width: 43.5rem) {
+  header {
+    background-color: unset;
+  }
 }
