@@ -85,6 +85,32 @@ function Header({
             </div>
 
             <div className="menu-item">
+              <p>Landscape</p>
+              <div className="radio-button">
+                <input
+                  type="radio"
+                  name="landscape"
+                  id="landscape-true"
+                  onChange={() =>
+                    setMenuSettings({ ...menuSettings, landscape: true })
+                  }
+                />
+                <label htmlFor="landscape-true">Yes</label>
+
+                <input
+                  type="radio"
+                  name="landscape"
+                  id="landscape-false"
+                  onChange={() =>
+                    setMenuSettings({ ...menuSettings, landscape: false })
+                  }
+                  defaultChecked
+                />
+                <label htmlFor="landscape-false">No</label>
+              </div>
+            </div>
+
+            <div className="menu-item">
               <p>Hide Accidentals</p>
               <div className="radio-button">
                 <input

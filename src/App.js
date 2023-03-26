@@ -15,6 +15,7 @@ const App = () => {
     hideAccidentals: true,
     flattenPitch: true,
     fretNums: 'inlays',
+    landscape: false,
   });
 
   const changeTuningFromPreset = preset => {
@@ -30,7 +31,7 @@ const App = () => {
         setMenuSettings={setMenuSettings}
         menuSettings={menuSettings}
       />
-      <main>
+      <main className={menuSettings.landscape ? 'landscape' : null}>
         <Fretboard
           tuning={tuning}
           setTuning={setTuning}
