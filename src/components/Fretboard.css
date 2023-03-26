@@ -1,38 +1,24 @@
 .fretboard {
-  position: relative;
   display: flex;
-  height: 150%;
-  min-height: 750px;
-  width: 240px;
+  width: fit-content;
   border: 0.5rem solid #031322;
   border-radius: 2rem;
-  flex-direction: row;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.705);
+  margin: auto;
 }
+
 .left-handed {
   flex-direction: row-reverse;
 }
 
-@media only screen and (min-width: 375px) {
-  .fretboard {
-    width: 265px;
-  }
+/* -------------------- Landscape Mode -------------------- */
+
+.landscape .fretboard {
+  flex-direction: column-reverse;
 }
 
-@media only screen and (min-width: 600px) {
+@media screen and (min-width: 600px) {
   .fretboard {
-    height: 210px;
-    min-height: 210px;
-    width: 150%;
-    top: -10%;
-    flex-direction: column-reverse;
-    align-self: center;
-  }
-}
-
-@media only screen and (min-width: 1000px) and (min-height: 500px) {
-  .fretboard {
-    height: 250px;
-    min-height: 250px;
+    /* z-index: 1; */
   }
 }

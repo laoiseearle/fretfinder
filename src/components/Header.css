@@ -1,32 +1,37 @@
-/* ------- Header ------- */
-/* --------------------- */
-
 header {
   position: fixed;
   display: flex;
-  padding: 1.3rem 0;
+  padding: 1.3rem 1rem;
+  padding-bottom: 0.5rem;
   top: 0;
   left: 0;
   right: 0;
   background-color: #0e5394;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   z-index: 2;
+  max-width: 70rem;
   margin: auto;
 }
 
-.header-title {
-  font-size: 2.5rem;
+.flex-right {
+  display: flex;
+  gap: 1.5rem;
+}
+
+h1 {
+  font-size: 1.5rem;
+  font-size: clamp(1.5rem, 0.357rem + 5.714vw, 2.5rem);
   font-family: 'Caveat', cursive;
 }
 
-.header-title:hover {
+h1:hover {
   cursor: default;
 }
 
 .fa {
   position: relative;
-  font-size: 2rem !important;
+  font-size: clamp(1.5rem, 0.357rem + 5.714vw, 2.5rem) !important;
   user-select: none;
 }
 
@@ -35,20 +40,11 @@ header {
   color: #001646c4;
 }
 
-.fa:hover {
-  cursor: pointer;
-  color: #b7dffc;
-}
-.fa-times:hover {
-  color: #0016469d;
-}
-
-/* ------- Settings ------- */
-/* ----------------------- */
+/* ------ Settings ------ */
 
 .menu-container {
   position: fixed;
-  inset: 0 0 0 0;
+  inset: 0;
   z-index: 3;
   background-color: rgb(255, 255, 255);
   color: rgb(0, 9, 51);
@@ -77,8 +73,7 @@ header {
   margin: auto;
 }
 
-/* --- Radio Buttons --- */
-/* -------------------- */
+/* ------ Radio Buttons ------ */
 
 .radio-button {
   display: flex;
@@ -114,8 +109,7 @@ header {
   border-left: 2px solid black;
 }
 
-/* --- Presets --- */
-/* -------------- */
+/* ------ Presets ------ */
 
 .instrument,
 .tunings {
@@ -152,14 +146,20 @@ header {
   cursor: pointer;
 }
 
-@media only screen and (min-width: 600px) {
-  .header-title {
-    font-size: 3.5rem;
-    width: 70%;
+@media (hover: hover) {
+  .fa:hover {
+    cursor: pointer;
+    color: #b7dffc;
   }
 
-  .fa {
-    font-size: 2.5rem !important;
+  .fa-times:hover {
+    color: #0016469d;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  header {
+    background-color: unset;
   }
 
   .fa-times {
@@ -170,19 +170,17 @@ header {
     color: #8eb4cf;
   }
 
-  /* Background Blur */
+  /* ------ Background Blur ------ */
 
   .settings-menu {
     position: fixed;
-    inset: 0 0 0 0;
+    inset: 0;
     background-color: #0e5394af;
   }
 
-  .menu-container {
+  /* .menu-container {
     margin: auto;
-    max-width: 450px;
-    max-height: 570px;
     border-radius: 0.6rem;
     box-shadow: 5px 5px 10px 3px rgba(0, 0, 0, 0.705);
-  }
+  } */
 }

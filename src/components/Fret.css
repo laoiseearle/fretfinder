@@ -1,45 +1,33 @@
-.fret,
-.note,
-.fret-num {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: Arial, Helvetica, sans-serif;
+:root {
+  /*------ Background Colors ------  */
+  --fret-background-color: #ffffffd2;
+  --fret-inlay-background-color: #ffffff53;
+  --fretboard-background-color: #021527;
+  --fret-number-background-color: #0215279b;
+
+  /*  ------ Portrait Mode ------ */
+  --nut-size-portrait: 1.25rem;
+  --fret-height-portrait: clamp(1.75rem, 0.893rem + 4.286vw, 2.5rem);
+  --fret-width-portrait: clamp(1rem, 0.543rem + 2.286vw, 1.4rem);
+
+  --note-font-size-portrait: clamp(0.75rem, 0.464rem + 1.429vw, 1rem);
+  --note-size-portrait: clamp(1.75rem, 1.236rem + 2.571vw, 2.2rem);
+
+  /* ------ Landscape Mode ------ */
+  --nut-size-landscape: clamp(1rem, 0.714rem + 1.429vw, 1.25rem);
+  --fret-height-landscape: 1rem;
+  --fret-width-landscape: clamp(2rem, 1.429rem + 2.857vw, 2.5rem);
+
+  --note-font-size-landscape: clamp(0.75rem, 0.464rem + 1.429vw, 1rem);
+  --note-size-landscape: clamp(1.75rem, 1.35rem + 2vw, 2.1rem);
 }
 
-.fret {
-  flex: 1;
-  border-width: 0;
-  border-bottom: 0.35rem solid;
-  border-image: linear-gradient(to bottom, #000000, #48658d, #000000) 0 0 100;
-  background-color: #ffffffd2;
-}
-
-.fret-num {
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  right: calc(100% + 1rem);
-  font-size: 1rem;
-  color: white;
-  background-color: #0215279b;
-  border-radius: 2rem;
-  cursor: default;
-}
-
-.fret-left-handed > .fret-num {
-  left: calc(100% + 1rem);
-  right: unset;
-}
-
+.fret-num,
 .note {
-  height: 30px;
-  width: 30px;
-  color: black;
+  font-family: Arial, Helvetica, sans-serif;
   font-weight: 900;
-  border: 0.3rem solid rgb(0, 0, 0);
-  border-radius: 2rem;
-  z-index: 1;
+  font-size: var(--note-font-size-portrait);
+
   user-select: none;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -47,35 +35,77 @@
   -moz-user-select: none;
   -ms-user-select: none;
 }
-.note:hover {
-  cursor: pointer;
+
+.fret,
+.note,
+.fret-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Guitar nut */
+.fret-num,
+.note {
+  position: absolute;
+  width: var(--note-size-portrait);
+  height: var(--note-size-portrait);
+  border-radius: 50%;
+}
+
+.fret {
+  padding: var(--fret-height-portrait) var(--fret-width-portrait);
+  border-bottom: 0.35rem solid;
+  border-image: linear-gradient(to bottom, #000000, #48658d, #000000) 0 0 100;
+  background-color: var(--fret-background-color);
+}
+
+.fret-num {
+  right: calc(100% + 0.75rem);
+  background-color: var(--fret-number-background-color);
+  cursor: default;
+}
+
+.fret-left-handed > .fret-num {
+  left: calc(100% + 0.75rem);
+  right: unset;
+}
+
+.note {
+  color: black;
+  border: 0.25rem solid rgb(0, 0, 0);
+}
+
+/* ------ Guitar nut ------ */
 .fret:first-child {
-  flex: 0.7;
-  background-color: #021527;
+  padding-block: var(--nut-size-portrait);
+  background-color: var(--fretboard-background-color);
   z-index: 0;
 }
 
-/* Guitar bridge */
-.fret:last-child {
-  border-image: none;
-  border-bottom: 0.5rem solid #031322;
+.fret:first-child .note {
+  border: 0.25rem solid var(--fretboard-background-color);
 }
 
-/* Dark frets (3-5-7-9-12) */
+/* ------ Guitar bridge ------ */
+.fret:last-child {
+  border-image: none;
+  border-bottom: 0.5rem solid var(--fretboard-background-color);
+}
+
+/* ------ Dark frets (3-5-7-9-12) ------ */
 .fret:nth-child(4),
 .fret:nth-child(6),
 .fret:nth-child(8),
 .fret:nth-child(10),
 .fret:nth-child(13) {
-  background-color: #ffffff53;
+  background-color: var(--fret-inlay-background-color);
 }
 
-/* The four corners of the fretboard  
-Clockwise motion starting from top-left
-------------------------------------------- */
+/* -------------------------------------------
+  The four corners of the fretboard  
+  Clockwise motion starting from top-left
+  -------------------------------------------  */
+
 .string:first-of-type > .fret:first-child {
   border-top-left-radius: 1rem;
 }
@@ -89,7 +119,8 @@ Clockwise motion starting from top-left
   border-bottom-left-radius: 1rem;
 }
 
-/* Left handed */
+/* ------ Left handed ------ */
+
 .string:last-child > .fret-left-handed:first-child {
   border-top-right-radius: 0rem;
   border-top-left-radius: 1rem;
@@ -107,112 +138,107 @@ Clockwise motion starting from top-left
   border-bottom-left-radius: 1rem;
 }
 
-/* ----------------------------------------
-End four corners of fretboard */
+/* -------------------- Landscape Mode -------------------- */
 
-@media only screen and (min-width: 375px) {
-  .note {
-    height: 32px;
-    width: 32px;
-  }
+.landscape .fret-num,
+.landscape .note {
+  width: var(--note-size-landscape);
+  height: var(--note-size-landscape);
+  font-size: var(--note-font-size-landscape);
 }
 
-@media only screen and (min-width: 600px) {
-  .note {
-    height: 28px;
-    width: 28px;
-    border: 0.25rem solid rgb(0, 0, 0);
-  }
+.landscape .fret {
+  border-right: 0.35rem solid;
+  border-image: linear-gradient(to left, #000000, #48658d, #000000) 1 100;
+  border-bottom: none;
+  padding: var(--fret-height-landscape) var(--fret-width-landscape);
+}
 
-  .fret {
-    border-right: 0.35rem solid;
-    border-image: linear-gradient(to left, #000000, #48658d, #000000) 1 100;
-    border-bottom: none;
-  }
+.landscape .fret > .fret-num {
+  left: unset;
+  right: unset;
+  top: calc(100% + 1rem);
+}
 
-  .fret > .fret-num {
-    left: unset;
-    right: unset;
-    top: calc(100% + 1rem);
-  }
+/* ------ Landscape: Guitar nut ------ */
+.landscape .fret:first-child {
+  padding: var(--nut-size-landscape);
+}
 
-  /* Guitar nut */
-  .fret:first-child {
-    flex: 0.5;
-  }
+/* ------ Guitar bridge ------ */
+.landscape .fret:last-child {
+  border-bottom: none;
+  border-image: none;
+  border-right: 0.5rem solid var(--fretboard-background-color);
+}
 
-  /* Guitar bridge */
-  .fret:last-child {
-    border-bottom: none;
-    border-right: 0.5rem solid #031f3a;
-  }
+/* ------ Landscape: Reset border image ------ */
+.landscape .fret-left-handed,
+.landscape .fret-left-handed:last-child {
+  border: none;
+  border-width: 0;
+}
 
-  /* Reset right-handed border image */
-  .fret-left-handed,
-  .fret-left-handed:last-child {
-    border: none;
-    border-width: 0;
-  }
+.landscape .fret-left-handed {
+  border-left: 0.35rem solid;
+  border-image: linear-gradient(to right, #000000, #48658d, #000000) 1 100;
+}
 
-  .fret-left-handed {
-    border-left: 0.35rem solid;
-    border-image: linear-gradient(to right, #000000, #48658d, #000000) 1 100;
-  }
+/* ------ Landscape: Left handed bridge ------ */
+.landscape .fret-left-handed:last-child {
+  border-left: 0.5rem solid var(--fretboard-background-color);
+}
 
-  /* Left handed guitar bridge */
-  .fret-left-handed:last-child {
-    border-left: 0.5rem solid #031f3a;
-  }
-
-  /* The four corners of the fretboard  
+/* -------------------------------------------
+  Landscape: The four corners of the fretboard  
   Clockwise motion starting from top-left
   -------------------------------------------  */
 
-  .string:last-child > .fret:first-child {
-    border-top-left-radius: 1rem;
-    border-top-right-radius: 0rem;
-  }
-  .string:last-child > .fret:last-child {
-    border-top-right-radius: 1rem;
-    border-bottom-right-radius: 0rem;
-  }
-  .string:first-of-type > .fret:last-child {
-    border-bottom-right-radius: 1rem;
-    border-bottom-left-radius: 0rem;
-  }
-  .string:first-of-type > .fret:first-child {
-    border-bottom-left-radius: 1rem;
-    border-top-left-radius: 0rem;
-  }
-
-  /* Left handed */
-  .string:last-child > .fret-left-handed:last-child {
-    border-top-right-radius: 0rem;
-    border-top-left-radius: 1rem;
-    border-bottom-left-radius: 0rem;
-  }
-  .string:last-child > .fret-left-handed:first-child {
-    border-top-left-radius: 0rem;
-    border-top-right-radius: 1rem;
-  }
-  .string:first-of-type > .fret-left-handed:first-child {
-    border-bottom-left-radius: 0rem;
-    border-bottom-right-radius: 1rem;
-    border-top-right-radius: 0rem;
-  }
-  .string:first-of-type > .fret-left-handed:last-child {
-    border-bottom-left-radius: 1rem;
-    border-bottom-right-radius: 0rem;
-  }
-
-  /* ----------------------------------------
-  End four corners of fretboard */
+.landscape .string:last-child > .fret:first-child {
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 0rem;
+}
+.landscape .string:last-child > .fret:last-child {
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 0rem;
+}
+.landscape .string:first-of-type > .fret:last-child {
+  border-bottom-right-radius: 1rem;
+  border-bottom-left-radius: 0rem;
+}
+.landscape .string:first-of-type > .fret:first-child {
+  border-bottom-left-radius: 1rem;
+  border-top-left-radius: 0rem;
 }
 
-@media only screen and (min-width: 1000px) and (min-height: 500px) {
-  .note {
-    height: 35px;
-    width: 35px;
-    border: 0.35rem solid rgb(0, 0, 0);
+/*  ------ Landscape: Left handed ------ */
+.landscape .string:last-child > .fret-left-handed:last-child {
+  border-top-right-radius: 0rem;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 0rem;
+}
+.landscape .string:last-child > .fret-left-handed:first-child {
+  border-top-left-radius: 0rem;
+  border-top-right-radius: 1rem;
+}
+.landscape .string:first-of-type > .fret-left-handed:first-child {
+  border-bottom-left-radius: 0rem;
+  border-bottom-right-radius: 1rem;
+  border-top-right-radius: 0rem;
+}
+.landscape .string:first-of-type > .fret-left-handed:last-child {
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 0rem;
+}
+
+@media (hover: hover) {
+  .note:hover {
+    scale: 1.1;
+    filter: brightness(1.2);
+    cursor: pointer;
+  }
+
+  .fret:first-child .note:hover {
+    scale: unset;
   }
 }

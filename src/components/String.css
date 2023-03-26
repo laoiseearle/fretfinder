@@ -1,7 +1,11 @@
+:root {
+  --string-background-color: #1e2e4d;
+  --string-shadow-color: #0b1527;
+}
+
 .string {
   position: relative;
   display: flex;
-  height: 100%;
   width: 100%;
   flex-direction: column;
 }
@@ -11,21 +15,23 @@
   position: absolute;
   height: 100%;
   width: 20%;
-  background-color: #1e2e4d;
+  background-color: var(--string-background-color);
   align-self: center;
-  box-shadow: 4px 0px 3px #0b1527;
+  box-shadow: 4px 0px 3px var(--string-shadow-color);
 }
 
-@media only screen and (min-width: 600px) {
-  .string {
-    flex-direction: row;
-  }
-  .string-left-handed {
-    flex-direction: row-reverse;
-  }
-  .string::before {
-    height: 20%;
-    width: 100%;
-    box-shadow: 0px 4px 3px #0b1527;
-  }
+/* -------------------- Landscape Mode -------------------- */
+
+.landscape .string {
+  flex-direction: row;
+}
+
+.landscape .string-left-handed {
+  flex-direction: row-reverse;
+}
+
+.landscape .string::before {
+  height: 20%;
+  width: 100%;
+  box-shadow: 0px 4px 3px var(--string-shadow-color);
 }
