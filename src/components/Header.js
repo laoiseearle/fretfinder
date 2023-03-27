@@ -11,6 +11,15 @@ function Header({
 }) {
   const [instrument, setInstrument] = useState('guitar');
 
+  const [dropdownMenuOpen, setDropdownMenuOpen] = useState({
+    accidentals: false,
+    hideAccidentals: false,
+    landscape: false,
+    rightHanded: false,
+    fretNums: false,
+    instrument: false,
+  });
+
   const instrumentPreset = (tuning, instrument) => {
     setInstrument(instrument);
     changeTuningFromPreset(tuning);
@@ -41,240 +50,361 @@ function Header({
           ></i>
         </div>
 
-        <div className="settings">
+        <div className="menu">
           <i
             className={`fa ${openMenu ? 'fa-times' : 'fa-cog'}`}
             onClick={() => setOpenMenu(!openMenu)}
           ></i>
-          <div
-            className="settings-menu"
-            onClick={() => setOpenMenu(false)}
-            style={{ display: openMenu ? 'flex' : 'none' }}
-          >
-            <div
-              className="menu-container"
-              onClick={e => {
-                e.stopPropagation();
-              }}
-            >
-              <h2>Fretboard</h2>
+        </div>
 
-              <div className="menu-item">
-                <p>Accidental Type</p>
-                <div className="radio-button">
-                  <input
-                    type="radio"
-                    name="accidental"
-                    id="flat"
-                    onChange={() =>
-                      setMenuSettings({ ...menuSettings, useFlats: true })
-                    }
-                    defaultChecked
-                  />
-                  <label htmlFor="flat">Flat</label>
-
-                  <input
-                    type="radio"
-                    name="accidental"
-                    id="sharp"
-                    onChange={() =>
-                      setMenuSettings({ ...menuSettings, useFlats: false })
-                    }
-                  />
-                  <label htmlFor="sharp">Sharp</label>
-                </div>
-              </div>
-
-              <div className="menu-item">
-                <p>Landscape</p>
-                <div className="radio-button">
-                  <input
-                    type="radio"
-                    name="landscape"
-                    id="landscape-true"
-                    onChange={() =>
-                      setMenuSettings({ ...menuSettings, landscape: true })
-                    }
-                  />
-                  <label htmlFor="landscape-true">Yes</label>
-
-                  <input
-                    type="radio"
-                    name="landscape"
-                    id="landscape-false"
-                    onChange={() =>
-                      setMenuSettings({ ...menuSettings, landscape: false })
-                    }
-                    defaultChecked
-                  />
-                  <label htmlFor="landscape-false">No</label>
-                </div>
-              </div>
-
-              <div className="menu-item">
-                <p>Hide Accidentals</p>
-                <div className="radio-button">
-                  <input
-                    type="radio"
-                    name="hide-accidental"
-                    id="hide-acc"
-                    defaultChecked
-                    onChange={() =>
-                      setMenuSettings({
-                        ...menuSettings,
-                        hideAccidentals: true,
-                      })
-                    }
-                  />
-                  <label htmlFor="hide-acc">Yes</label>
-
-                  <input
-                    type="radio"
-                    name="hide-accidental"
-                    id="show-acc"
-                    onChange={() =>
-                      setMenuSettings({
-                        ...menuSettings,
-                        hideAccidentals: false,
-                      })
-                    }
-                  />
-                  <label htmlFor="show-acc">No</label>
-                </div>
-              </div>
-
-              <div className="menu-item">
-                <p>Hand</p>
-
-                <div className="radio-button">
-                  <input
-                    type="radio"
-                    name="hand"
-                    id="left"
-                    onChange={() =>
-                      setMenuSettings({ ...menuSettings, rightHanded: false })
-                    }
-                  />
-                  <label htmlFor="left">Left</label>
-
-                  <input
-                    type="radio"
-                    name="hand"
-                    id="right"
-                    defaultChecked
-                    onChange={() =>
-                      setMenuSettings({ ...menuSettings, rightHanded: true })
-                    }
-                  />
-                  <label htmlFor="right">Right</label>
-                </div>
-              </div>
-
-              <div className="menu-item">
-                <p>Fret Numbers</p>
-
-                <div className="radio-button">
-                  <input
-                    type="radio"
-                    name="fret-nums"
-                    id="fret-nums-all"
-                    onChange={() =>
-                      setMenuSettings({ ...menuSettings, fretNums: 'all' })
-                    }
-                  />
-                  <label htmlFor="fret-nums-all">All</label>
-
-                  <input
-                    type="radio"
-                    name="fret-nums"
-                    id="fret-nums-inlays"
-                    defaultChecked
-                    onChange={() =>
-                      setMenuSettings({ ...menuSettings, fretNums: 'inlays' })
-                    }
-                  />
-                  <label htmlFor="fret-nums-inlays">Inlays</label>
-
-                  <input
-                    type="radio"
-                    name="fret-nums"
-                    id="fret-nums-off"
-                    onChange={() =>
-                      setMenuSettings({ ...menuSettings, fretNums: 'off' })
-                    }
-                  />
-                  <label htmlFor="fret-nums-off">Off</label>
-                </div>
-              </div>
-
-              <div className="menu-item instrument">
-                <h3>Instrument</h3>
-
-                <div className="radio-button radio-button-instrument">
-                  <input
-                    type="radio"
-                    name="instrument"
-                    id="guitar"
-                    defaultChecked
-                    onClick={() =>
-                      instrumentPreset(['E', 'A', 'D', 'G', 'B', 'E'], 'guitar')
-                    }
-                  />
-
-                  <label htmlFor="guitar">Guitar</label>
-
-                  <input
-                    type="radio"
-                    name="instrument"
-                    id="bass"
-                    onClick={() =>
-                      instrumentPreset(['E', 'A', 'D', 'G'], 'bass')
-                    }
-                  />
-
-                  <label htmlFor="bass">Bass</label>
-
-                  <input
-                    type="radio"
-                    name="instrument"
-                    id="ukulele"
-                    onClick={() =>
-                      instrumentPreset(['G', 'C', 'E', 'A'], 'ukulele')
-                    }
-                  />
-
-                  <label htmlFor="ukulele">Ukulele</label>
-
-                  <input
-                    type="radio"
-                    name="instrument"
-                    id="mandolin"
-                    onClick={() =>
-                      instrumentPreset(['G', 'D', 'A', 'E'], 'mandolin')
-                    }
-                  />
-
-                  <label htmlFor="mandolin">Mandolin</label>
-                </div>
-              </div>
-
-              <div className="menu-item tunings">
-                <h3>Tuning Presets</h3>
-
-                <div className="tuning-presets">
-                  {data[instrument].map(preset => {
-                    const presetName = preset[0];
-                    const presetTuning = preset[1];
-
-                    return (
-                      <button type="button" onClick={() => test(presetTuning)}>
-                        {presetName}
-                      </button>
-                    );
-                  })}
-                </div>
+        <div className={openMenu ? 'settings-menu menu-open' : 'settings-menu'}>
+          <h2>Settings</h2>
+          <div className="menu-item">
+            <div className="dropdown">
+              <button
+                onClick={() =>
+                  setDropdownMenuOpen({
+                    ...dropdownMenuOpen,
+                    landscape: !dropdownMenuOpen.landscape,
+                  })
+                }
+              >
+                <p>Display Mode</p>
+                <p>{`${menuSettings.landscape ? 'Landscape' : 'Portrait'}`}</p>
+              </button>
+              <div
+                className={
+                  dropdownMenuOpen.landscape
+                    ? 'dropdown-menu active'
+                    : 'dropdown-menu'
+                }
+              >
+                <button
+                  onClick={() => {
+                    setMenuSettings({ ...menuSettings, landscape: true });
+                    setDropdownMenuOpen({
+                      ...dropdownMenuOpen,
+                      landscape: dropdownMenuOpen.true,
+                    });
+                  }}
+                >
+                  <p>Landscape</p>
+                </button>
+                <button
+                  onClick={() => {
+                    setMenuSettings({ ...menuSettings, landscape: false });
+                    setDropdownMenuOpen({
+                      ...dropdownMenuOpen,
+                      landscape: dropdownMenuOpen.false,
+                    });
+                  }}
+                >
+                  <p>Portrait</p>
+                </button>
               </div>
             </div>
+          </div>
+
+          <div className="menu-item">
+            <div className="dropdown">
+              <button
+                onClick={() =>
+                  setDropdownMenuOpen({
+                    ...dropdownMenuOpen,
+                    accidentals: !dropdownMenuOpen.accidentals,
+                  })
+                }
+              >
+                <p>Accidental Type</p>
+                <p>{`${menuSettings.useFlats ? 'Flats' : 'Sharps'}`}</p>
+              </button>
+              <div
+                className={
+                  dropdownMenuOpen.accidentals
+                    ? 'dropdown-menu active'
+                    : 'dropdown-menu'
+                }
+              >
+                <button
+                  onClick={() => {
+                    setMenuSettings({ ...menuSettings, useFlats: true });
+                    setDropdownMenuOpen({
+                      ...dropdownMenuOpen,
+                      accidentals: dropdownMenuOpen.false,
+                    });
+                  }}
+                >
+                  <p>Flats</p>
+                </button>
+                <button
+                  onClick={() => {
+                    setMenuSettings({ ...menuSettings, useFlats: false });
+                    setDropdownMenuOpen({
+                      ...dropdownMenuOpen,
+                      accidentals: dropdownMenuOpen.false,
+                    });
+                  }}
+                >
+                  <p>Sharps</p>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div className="menu-item">
+            <div className="dropdown">
+              <button
+                onClick={() =>
+                  setDropdownMenuOpen({
+                    ...dropdownMenuOpen,
+                    hideAccidentals: !dropdownMenuOpen.hideAccidentals,
+                  })
+                }
+              >
+                <p>Accidental Display</p>
+                <p>{`${
+                  menuSettings.hideAccidentals ? 'Hidden' : 'Visible'
+                }`}</p>
+              </button>
+              <div
+                className={
+                  dropdownMenuOpen.hideAccidentals
+                    ? 'dropdown-menu active'
+                    : 'dropdown-menu'
+                }
+              >
+                <button
+                  onClick={() => {
+                    setMenuSettings({ ...menuSettings, hideAccidentals: true });
+                    setDropdownMenuOpen({
+                      ...dropdownMenuOpen,
+                      hideAccidentals: dropdownMenuOpen.false,
+                    });
+                  }}
+                >
+                  <p>Hidden</p>
+                </button>
+                <button
+                  onClick={() => {
+                    setMenuSettings({
+                      ...menuSettings,
+                      hideAccidentals: false,
+                    });
+                    setDropdownMenuOpen({
+                      ...dropdownMenuOpen,
+                      hideAccidentals: dropdownMenuOpen.false,
+                    });
+                  }}
+                >
+                  <p>Visible</p>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div className="menu-item">
+            <div className="dropdown">
+              <button
+                onClick={() =>
+                  setDropdownMenuOpen({
+                    ...dropdownMenuOpen,
+                    rightHanded: !dropdownMenuOpen.rightHanded,
+                  })
+                }
+              >
+                <p>Fretboard</p>
+                <p>{`${
+                  menuSettings.rightHanded ? 'Right-Handed' : 'Left-Handed'
+                }`}</p>
+              </button>
+              <div
+                className={
+                  dropdownMenuOpen.rightHanded
+                    ? 'dropdown-menu active'
+                    : 'dropdown-menu'
+                }
+              >
+                <button
+                  onClick={() => {
+                    setMenuSettings({ ...menuSettings, rightHanded: true });
+                    setDropdownMenuOpen({
+                      ...dropdownMenuOpen,
+                      rightHanded: dropdownMenuOpen.false,
+                    });
+                  }}
+                >
+                  <p>Right-Handed</p>
+                </button>
+                <button
+                  onClick={() => {
+                    setMenuSettings({
+                      ...menuSettings,
+                      rightHanded: false,
+                    });
+                    setDropdownMenuOpen({
+                      ...dropdownMenuOpen,
+                      rightHanded: dropdownMenuOpen.false,
+                    });
+                  }}
+                >
+                  <p>Left-Handed</p>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div className="menu-item">
+            <div className="dropdown">
+              <button
+                onClick={() =>
+                  setDropdownMenuOpen({
+                    ...dropdownMenuOpen,
+                    fretNums: !dropdownMenuOpen.fretNums,
+                  })
+                }
+              >
+                <p>Fret Numbers</p>
+                <p>{`${menuSettings.fretNums}`}</p>
+              </button>
+              <div
+                className={
+                  dropdownMenuOpen.fretNums
+                    ? 'dropdown-menu active'
+                    : 'dropdown-menu'
+                }
+              >
+                <button
+                  onClick={() => {
+                    setMenuSettings({ ...menuSettings, fretNums: 'all' });
+                    setDropdownMenuOpen({
+                      ...dropdownMenuOpen,
+                      fretNums: dropdownMenuOpen.false,
+                    });
+                  }}
+                >
+                  <p>All</p>
+                </button>
+                <button
+                  onClick={() => {
+                    setMenuSettings({
+                      ...menuSettings,
+                      fretNums: 'inlays',
+                    });
+                    setDropdownMenuOpen({
+                      ...dropdownMenuOpen,
+                      fretNums: dropdownMenuOpen.false,
+                    });
+                  }}
+                >
+                  <p>Inlays</p>
+                </button>
+
+                <button
+                  onClick={() => {
+                    setMenuSettings({
+                      ...menuSettings,
+                      fretNums: 'off',
+                    });
+                    setDropdownMenuOpen({
+                      ...dropdownMenuOpen,
+                      fretNums: dropdownMenuOpen.false,
+                    });
+                  }}
+                >
+                  <p>None</p>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* 
+
+dsd
+
+ */}
+
+          <div className="menu-item instrument">
+            <h3>Presets</h3>
+            <div className="dropdown">
+              <button
+                onClick={() =>
+                  setDropdownMenuOpen({
+                    ...dropdownMenuOpen,
+                    instrument: !dropdownMenuOpen.instrument,
+                  })
+                }
+              >
+                <p>Instument</p>
+                <p>{`${instrument}`}</p>
+              </button>
+              <div
+                className={
+                  dropdownMenuOpen.instrument
+                    ? 'dropdown-menu active'
+                    : 'dropdown-menu'
+                }
+              >
+                <button
+                  onClick={() => {
+                    instrumentPreset(['E', 'A', 'D', 'G', 'B', 'E'], 'guitar');
+                    setDropdownMenuOpen({
+                      ...dropdownMenuOpen,
+                      instrument: instrument.false,
+                    });
+                  }}
+                >
+                  <p>Guitar</p>
+                </button>
+                <button
+                  onClick={() => {
+                    instrumentPreset(['E', 'A', 'D', 'G'], 'bass');
+                    setDropdownMenuOpen({
+                      ...dropdownMenuOpen,
+                      instrument: instrument.false,
+                    });
+                  }}
+                >
+                  <p>Bass</p>
+                </button>
+
+                <button
+                  onClick={() => {
+                    instrumentPreset(['G', 'C', 'E', 'A'], 'ukulele');
+                    setDropdownMenuOpen({
+                      ...dropdownMenuOpen,
+                      instrument: instrument.false,
+                    });
+                  }}
+                >
+                  <p>Ukulele</p>
+                </button>
+
+                <button
+                  onClick={() => {
+                    instrumentPreset(['G', 'D', 'A', 'E'], 'mandolin');
+                    setDropdownMenuOpen({
+                      ...dropdownMenuOpen,
+                      instrument: instrument.false,
+                    });
+                  }}
+                >
+                  <p>Mandolin</p>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div className="tuning-presets">
+            {data[instrument].map(preset => {
+              const presetName = preset[0];
+              const presetTuning = preset[1];
+
+              return (
+                <button type="button" onClick={() => test(presetTuning)}>
+                  {presetName}
+                </button>
+              );
+            })}
           </div>
         </div>
       </div>
