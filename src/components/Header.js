@@ -317,12 +317,6 @@ function Header({
             </div>
           </div>
 
-          {/* 
-
-dsd
-
- */}
-
           <div className="menu-item instrument">
             <h3>Presets</h3>
             <div className="dropdown">
