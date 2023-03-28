@@ -311,7 +311,7 @@ function Header({
                     });
                   }}
                 >
-                  <p>None</p>
+                  <p>Off</p>
                 </button>
               </div>
             </div>
@@ -328,7 +328,7 @@ function Header({
                   })
                 }
               >
-                <p>Instument</p>
+                <p>Instrument</p>
                 <p>{`${instrument}`}</p>
               </button>
               <div
@@ -388,17 +388,19 @@ function Header({
             </div>
           </div>
 
-          <div className="tuning-presets">
-            {data[instrument].map(preset => {
-              const presetName = preset[0];
-              const presetTuning = preset[1];
+          <div className="menu-item">
+            <div className="tuning-presets">
+              {data[instrument].map(preset => {
+                const presetName = preset[0];
+                const presetTuning = preset[1];
 
-              return (
-                <button type="button" onClick={() => test(presetTuning)}>
-                  {presetName}
-                </button>
-              );
-            })}
+                return (
+                  <button type="button" onClick={() => test(presetTuning)}>
+                    {presetName}
+                  </button>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>
