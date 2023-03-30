@@ -84,7 +84,7 @@ function Header({
                     setMenuSettings({ ...menuSettings, landscape: true });
                     setDropdownMenuOpen({
                       ...dropdownMenuOpen,
-                      landscape: dropdownMenuOpen.true,
+                      landscape: false,
                     });
                   }}
                 >
@@ -95,7 +95,7 @@ function Header({
                     setMenuSettings({ ...menuSettings, landscape: false });
                     setDropdownMenuOpen({
                       ...dropdownMenuOpen,
-                      landscape: dropdownMenuOpen.false,
+                      landscape: false,
                     });
                   }}
                 >
@@ -108,12 +108,12 @@ function Header({
           <div className="menu-item">
             <div className="dropdown">
               <button
-                onClick={() =>
+                onClick={() => {
                   setDropdownMenuOpen({
                     ...dropdownMenuOpen,
                     accidentals: !dropdownMenuOpen.accidentals,
-                  })
-                }
+                  });
+                }}
               >
                 <p>Accidental Type</p>
                 <p>{`${menuSettings.useFlats ? 'Flats' : 'Sharps'}`}</p>
@@ -130,7 +130,7 @@ function Header({
                     setMenuSettings({ ...menuSettings, useFlats: true });
                     setDropdownMenuOpen({
                       ...dropdownMenuOpen,
-                      accidentals: dropdownMenuOpen.false,
+                      accidentals: false,
                     });
                   }}
                 >
@@ -141,7 +141,7 @@ function Header({
                     setMenuSettings({ ...menuSettings, useFlats: false });
                     setDropdownMenuOpen({
                       ...dropdownMenuOpen,
-                      accidentals: dropdownMenuOpen.false,
+                      accidentals: false,
                     });
                   }}
                 >
@@ -178,7 +178,7 @@ function Header({
                     setMenuSettings({ ...menuSettings, hideAccidentals: true });
                     setDropdownMenuOpen({
                       ...dropdownMenuOpen,
-                      hideAccidentals: dropdownMenuOpen.false,
+                      hideAccidentals: false,
                     });
                   }}
                 >
@@ -192,7 +192,7 @@ function Header({
                     });
                     setDropdownMenuOpen({
                       ...dropdownMenuOpen,
-                      hideAccidentals: dropdownMenuOpen.false,
+                      hideAccidentals: false,
                     });
                   }}
                 >
@@ -229,7 +229,7 @@ function Header({
                     setMenuSettings({ ...menuSettings, rightHanded: true });
                     setDropdownMenuOpen({
                       ...dropdownMenuOpen,
-                      rightHanded: dropdownMenuOpen.false,
+                      rightHanded: false,
                     });
                   }}
                 >
@@ -243,7 +243,7 @@ function Header({
                     });
                     setDropdownMenuOpen({
                       ...dropdownMenuOpen,
-                      rightHanded: dropdownMenuOpen.false,
+                      rightHanded: false,
                     });
                   }}
                 >
@@ -278,7 +278,7 @@ function Header({
                     setMenuSettings({ ...menuSettings, fretNums: 'all' });
                     setDropdownMenuOpen({
                       ...dropdownMenuOpen,
-                      fretNums: dropdownMenuOpen.false,
+                      fretNums: false,
                     });
                   }}
                 >
@@ -292,7 +292,7 @@ function Header({
                     });
                     setDropdownMenuOpen({
                       ...dropdownMenuOpen,
-                      fretNums: dropdownMenuOpen.false,
+                      fretNums: false,
                     });
                   }}
                 >
@@ -307,7 +307,7 @@ function Header({
                     });
                     setDropdownMenuOpen({
                       ...dropdownMenuOpen,
-                      fretNums: dropdownMenuOpen.false,
+                      fretNums: false,
                     });
                   }}
                 >
@@ -343,7 +343,7 @@ function Header({
                     instrumentPreset(['E', 'A', 'D', 'G', 'B', 'E'], 'guitar');
                     setDropdownMenuOpen({
                       ...dropdownMenuOpen,
-                      instrument: instrument.false,
+                      instrument: false,
                     });
                   }}
                 >
@@ -354,7 +354,7 @@ function Header({
                     instrumentPreset(['E', 'A', 'D', 'G'], 'bass');
                     setDropdownMenuOpen({
                       ...dropdownMenuOpen,
-                      instrument: instrument.false,
+                      instrument: false,
                     });
                   }}
                 >
@@ -366,7 +366,7 @@ function Header({
                     instrumentPreset(['G', 'C', 'E', 'A'], 'ukulele');
                     setDropdownMenuOpen({
                       ...dropdownMenuOpen,
-                      instrument: instrument.false,
+                      instrument: false,
                     });
                   }}
                 >
@@ -378,7 +378,7 @@ function Header({
                     instrumentPreset(['G', 'D', 'A', 'E'], 'mandolin');
                     setDropdownMenuOpen({
                       ...dropdownMenuOpen,
-                      instrument: instrument.false,
+                      instrument: false,
                     });
                   }}
                 >
