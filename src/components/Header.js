@@ -29,6 +29,19 @@ function Header({
     changeTuningFromPreset(tuning);
   };
 
+  const toggleDropDownMenus = target => {
+    if (dropdownMenuOpen[target]) {
+      return setDropdownMenuOpen(!dropdownMenuOpen[target]);
+    }
+
+    const updatedState = Object.keys(dropdownMenuOpen).reduce(
+      (acc, curr) => ({ ...acc, [curr]: false }),
+      {}
+    );
+    updatedState[target] = !dropdownMenuOpen[target];
+    return setDropdownMenuOpen(updatedState);
+  };
+
   return (
     <header>
       <h1>FretFinder</h1>
@@ -62,12 +75,9 @@ function Header({
           <div className="menu-item">
             <div className="dropdown">
               <button
-                onClick={() =>
-                  setDropdownMenuOpen({
-                    ...dropdownMenuOpen,
-                    landscape: !dropdownMenuOpen.landscape,
-                  })
-                }
+                onClick={() => {
+                  toggleDropDownMenus('landscape');
+                }}
               >
                 <p>Display Mode</p>
                 <p>{`${menuSettings.landscape ? 'Landscape' : 'Portrait'}`}</p>
@@ -82,10 +92,7 @@ function Header({
                 <button
                   onClick={() => {
                     setMenuSettings({ ...menuSettings, landscape: true });
-                    setDropdownMenuOpen({
-                      ...dropdownMenuOpen,
-                      landscape: false,
-                    });
+                    toggleDropDownMenus('landscape');
                   }}
                 >
                   <p>Landscape</p>
@@ -93,10 +100,7 @@ function Header({
                 <button
                   onClick={() => {
                     setMenuSettings({ ...menuSettings, landscape: false });
-                    setDropdownMenuOpen({
-                      ...dropdownMenuOpen,
-                      landscape: false,
-                    });
+                    toggleDropDownMenus('landscape');
                   }}
                 >
                   <p>Portrait</p>
@@ -109,10 +113,7 @@ function Header({
             <div className="dropdown">
               <button
                 onClick={() => {
-                  setDropdownMenuOpen({
-                    ...dropdownMenuOpen,
-                    accidentals: !dropdownMenuOpen.accidentals,
-                  });
+                  toggleDropDownMenus('accidentals');
                 }}
               >
                 <p>Accidental Type</p>
@@ -128,10 +129,7 @@ function Header({
                 <button
                   onClick={() => {
                     setMenuSettings({ ...menuSettings, useFlats: true });
-                    setDropdownMenuOpen({
-                      ...dropdownMenuOpen,
-                      accidentals: false,
-                    });
+                    toggleDropDownMenus('accidentals');
                   }}
                 >
                   <p>Flats</p>
@@ -139,10 +137,7 @@ function Header({
                 <button
                   onClick={() => {
                     setMenuSettings({ ...menuSettings, useFlats: false });
-                    setDropdownMenuOpen({
-                      ...dropdownMenuOpen,
-                      accidentals: false,
-                    });
+                    toggleDropDownMenus('accidentals');
                   }}
                 >
                   <p>Sharps</p>
@@ -154,12 +149,9 @@ function Header({
           <div className="menu-item">
             <div className="dropdown">
               <button
-                onClick={() =>
-                  setDropdownMenuOpen({
-                    ...dropdownMenuOpen,
-                    hideAccidentals: !dropdownMenuOpen.hideAccidentals,
-                  })
-                }
+                onClick={() => {
+                  toggleDropDownMenus('hideAccidentals');
+                }}
               >
                 <p>Accidental Display</p>
                 <p>{`${
@@ -176,10 +168,7 @@ function Header({
                 <button
                   onClick={() => {
                     setMenuSettings({ ...menuSettings, hideAccidentals: true });
-                    setDropdownMenuOpen({
-                      ...dropdownMenuOpen,
-                      hideAccidentals: false,
-                    });
+                    toggleDropDownMenus('hideAccidentals');
                   }}
                 >
                   <p>Hidden</p>
@@ -190,10 +179,7 @@ function Header({
                       ...menuSettings,
                       hideAccidentals: false,
                     });
-                    setDropdownMenuOpen({
-                      ...dropdownMenuOpen,
-                      hideAccidentals: false,
-                    });
+                    toggleDropDownMenus('hideAccidentals');
                   }}
                 >
                   <p>Visible</p>
@@ -205,12 +191,9 @@ function Header({
           <div className="menu-item">
             <div className="dropdown">
               <button
-                onClick={() =>
-                  setDropdownMenuOpen({
-                    ...dropdownMenuOpen,
-                    rightHanded: !dropdownMenuOpen.rightHanded,
-                  })
-                }
+                onClick={() => {
+                  toggleDropDownMenus('rightHanded');
+                }}
               >
                 <p>Fretboard</p>
                 <p>{`${
@@ -227,10 +210,7 @@ function Header({
                 <button
                   onClick={() => {
                     setMenuSettings({ ...menuSettings, rightHanded: true });
-                    setDropdownMenuOpen({
-                      ...dropdownMenuOpen,
-                      rightHanded: false,
-                    });
+                    toggleDropDownMenus('rightHanded');
                   }}
                 >
                   <p>Right-Handed</p>
@@ -241,10 +221,7 @@ function Header({
                       ...menuSettings,
                       rightHanded: false,
                     });
-                    setDropdownMenuOpen({
-                      ...dropdownMenuOpen,
-                      rightHanded: false,
-                    });
+                    toggleDropDownMenus('rightHanded');
                   }}
                 >
                   <p>Left-Handed</p>
@@ -256,12 +233,9 @@ function Header({
           <div className="menu-item">
             <div className="dropdown">
               <button
-                onClick={() =>
-                  setDropdownMenuOpen({
-                    ...dropdownMenuOpen,
-                    fretNums: !dropdownMenuOpen.fretNums,
-                  })
-                }
+                onClick={() => {
+                  toggleDropDownMenus('fretNums');
+                }}
               >
                 <p>Fret Numbers</p>
                 <p>{`${menuSettings.fretNums}`}</p>
@@ -276,10 +250,7 @@ function Header({
                 <button
                   onClick={() => {
                     setMenuSettings({ ...menuSettings, fretNums: 'all' });
-                    setDropdownMenuOpen({
-                      ...dropdownMenuOpen,
-                      fretNums: false,
-                    });
+                    toggleDropDownMenus('fretNums');
                   }}
                 >
                   <p>All</p>
@@ -290,10 +261,7 @@ function Header({
                       ...menuSettings,
                       fretNums: 'inlays',
                     });
-                    setDropdownMenuOpen({
-                      ...dropdownMenuOpen,
-                      fretNums: false,
-                    });
+                    toggleDropDownMenus('fretNums');
                   }}
                 >
                   <p>Inlays</p>
@@ -305,10 +273,7 @@ function Header({
                       ...menuSettings,
                       fretNums: 'off',
                     });
-                    setDropdownMenuOpen({
-                      ...dropdownMenuOpen,
-                      fretNums: false,
-                    });
+                    toggleDropDownMenus('fretNums');
                   }}
                 >
                   <p>Off</p>
@@ -321,12 +286,9 @@ function Header({
             <h3>Presets</h3>
             <div className="dropdown">
               <button
-                onClick={() =>
-                  setDropdownMenuOpen({
-                    ...dropdownMenuOpen,
-                    instrument: !dropdownMenuOpen.instrument,
-                  })
-                }
+                onClick={() => {
+                  toggleDropDownMenus('instrument');
+                }}
               >
                 <p>Instrument</p>
                 <p>{`${instrument}`}</p>
@@ -341,10 +303,7 @@ function Header({
                 <button
                   onClick={() => {
                     instrumentPreset(['E', 'A', 'D', 'G', 'B', 'E'], 'guitar');
-                    setDropdownMenuOpen({
-                      ...dropdownMenuOpen,
-                      instrument: false,
-                    });
+                    toggleDropDownMenus('instrument');
                   }}
                 >
                   <p>Guitar</p>
@@ -352,10 +311,7 @@ function Header({
                 <button
                   onClick={() => {
                     instrumentPreset(['E', 'A', 'D', 'G'], 'bass');
-                    setDropdownMenuOpen({
-                      ...dropdownMenuOpen,
-                      instrument: false,
-                    });
+                    toggleDropDownMenus('instrument');
                   }}
                 >
                   <p>Bass</p>
@@ -364,10 +320,7 @@ function Header({
                 <button
                   onClick={() => {
                     instrumentPreset(['G', 'C', 'E', 'A'], 'ukulele');
-                    setDropdownMenuOpen({
-                      ...dropdownMenuOpen,
-                      instrument: false,
-                    });
+                    toggleDropDownMenus('instrument');
                   }}
                 >
                   <p>Ukulele</p>
@@ -376,10 +329,7 @@ function Header({
                 <button
                   onClick={() => {
                     instrumentPreset(['G', 'D', 'A', 'E'], 'mandolin');
-                    setDropdownMenuOpen({
-                      ...dropdownMenuOpen,
-                      instrument: false,
-                    });
+                    toggleDropDownMenus('instrument');
                   }}
                 >
                   <p>Mandolin</p>
