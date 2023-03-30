@@ -25,10 +25,6 @@ function Header({
     changeTuningFromPreset(tuning);
   };
 
-  const test = tuning => {
-    changeTuningFromPreset(tuning);
-  };
-
   const toggleDropDownMenus = target => {
     if (dropdownMenuOpen[target]) {
       return setDropdownMenuOpen(!dropdownMenuOpen[target]);
@@ -345,7 +341,10 @@ function Header({
                 const presetTuning = preset[1];
 
                 return (
-                  <button type="button" onClick={() => test(presetTuning)}>
+                  <button
+                    type="button"
+                    onClick={() => changeTuningFromPreset(presetTuning)}
+                  >
                     {presetName}
                   </button>
                 );
