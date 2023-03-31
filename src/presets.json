@@ -17,7 +17,7 @@
     ["CADG", ["C", "A", "D", "G"]],
     ["Drop-A", ["A", "E", "A", "D"]],
     ["BEAD", ["B", "E", "A", "D"]],
-    ["CGCG", ["C", "G", "C", "Gs"]]
+    ["CGCG", ["C", "G", "C", "G"]]
   ],
   "ukulele": [
     ["Standard", ["G", "C", "E", "A"]],
