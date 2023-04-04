@@ -1,9 +1,9 @@
 :root {
   /*------ Background Colors ------  */
-  --fret-background-color: #ffffffd2;
+  --fret-background-color: #daedfb;
   --fret-inlay-background-color: #ffffff53;
   --fretboard-background-color: #021527;
-  --fret-number-background-color: #0215279b;
+  --fret-number-background-color: #072c4b;
 
   /*  ------ Portrait Mode ------ */
   --nut-size-portrait: 1.25rem;
