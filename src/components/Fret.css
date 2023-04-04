@@ -7,19 +7,19 @@
 
   /*  ------ Portrait Mode ------ */
   --nut-size-portrait: 1.25rem;
-  --fret-height-portrait: clamp(1.75rem, 0.893rem + 4.286vw, 2.5rem);
-  --fret-width-portrait: clamp(1rem, 0.543rem + 2.286vw, 1.4rem);
+  --fret-height-portrait: clamp(1.75rem, calc(0.893rem + 4.286vw), 2.5rem);
+  --fret-width-portrait: clamp(1rem, calc(0.543rem + 2.286vw), 1.4rem);
 
-  --note-font-size-portrait: clamp(0.75rem, 0.464rem + 1.429vw, 1rem);
-  --note-size-portrait: clamp(1.75rem, 1.236rem + 2.571vw, 2.2rem);
+  --note-font-size-portrait: clamp(0.75rem, calc(0.464rem + 1.429vw), 1rem);
+  --note-size-portrait: clamp(1.75rem, calc(1.236rem + 2.571vw), 2.2rem);
 
   /* ------ Landscape Mode ------ */
-  --nut-size-landscape: clamp(1rem, 0.714rem + 1.429vw, 1.25rem);
+  --nut-size-landscape: clamp(1rem, calc(0.714rem + 1.429vw), 1.25rem);
   --fret-height-landscape: 1rem;
-  --fret-width-landscape: clamp(2rem, 1.429rem + 2.857vw, 2.5rem);
+  --fret-width-landscape: clamp(2rem, calc(1.429rem + 2.857vw), 2.5rem);
 
-  --note-font-size-landscape: clamp(0.75rem, 0.464rem + 1.429vw, 1rem);
-  --note-size-landscape: clamp(1.75rem, 1.35rem + 2vw, 2.1rem);
+  --note-font-size-landscape: clamp(0.75rem, calc(0.464rem + 1.429vw), 1rem);
+  --note-size-landscape: clamp(1.75rem, calc(1.35rem + 2vw), 2.1rem);
 }
 
 .fret-num,
