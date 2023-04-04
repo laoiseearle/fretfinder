@@ -7,13 +7,20 @@ main {
   background-color: #0e5394;
 }
 
-main.landscape {
+.landscape main {
   padding-block: 8rem 4rem;
   padding-inline: 0.5rem;
   overflow-x: scroll;
   scrollbar-width: none;
 }
 
-main.landscape::-webkit-scrollbar {
+.landscape main::-webkit-scrollbar {
   display: none;
+}
+
+@media only screen and (min-width: 50rem) {
+  main {
+    padding-top: 2rem;
+    margin-left: 18rem;
+  }
 }

@@ -1,11 +1,12 @@
 :root {
-  --header-background-color: #0e5394;
-  --settings-background-color: #0e5394;
+  --main-background-color: #0e5394;
+  --settings-background-color: #072c4b;
+  --settings-btn-background-color: #daedfb;
+  --dropdown-btn-background-color: #041e33;
+  --dropdown-btn-hover-background-color: #00000076;
 
-  --settings-btn-background-color: #0b4072;
-  --dropdown-btn-background-color: #051e35;
-
-  --btn-font-color: rgb(220, 228, 255);
+  --btn-font-color: #052139;
+  --dropdown-btn-font-color: #daedfb;
   --settings-font-color: #dedede;
 
   --menu-item-size: 14.5rem;
@@ -21,7 +22,7 @@ header {
   top: 0;
   left: 0;
   right: 0;
-  background-color: var(--header-background-color);
+  background-color: var(--main-background-color);
   justify-content: space-between;
   align-items: center;
   z-index: 2;
@@ -67,6 +68,9 @@ h1 {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
     'Lucida Sans', Arial, sans-serif;
 }
+.settings-menu::-webkit-scrollbar {
+  display: none;
+}
 
 .menu-open {
   display: block;
@@ -80,6 +84,7 @@ h1 {
 }
 
 .settings-menu h2 {
+  padding-top: 0.25rem;
   padding-bottom: 1.5rem;
 }
 
@@ -130,7 +135,6 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  inset: 0;
 }
 
 .dropdown > button p:last-of-type {
@@ -141,6 +145,7 @@ h1 {
 
 .dropdown-menu button {
   background-color: var(--dropdown-btn-background-color);
+  color: var(--dropdown-btn-font-color);
   text-align: left;
   border-radius: unset;
   border-bottom: 2px solid rgba(0, 0, 0, 0.2);
@@ -172,21 +177,92 @@ h1 {
   letter-spacing: 1.5px;
 }
 
-.tuning-presets button:active {
-  background-color: #0000005e;
-}
-
 @media (hover: hover) {
   h1:hover {
     cursor: default;
   }
 
-  .fa:hover {
+  .fa:hover,
+  button:hover {
     cursor: pointer;
+  }
+
+  .fa:hover {
     color: #b7dffc;
   }
 
   .fa-times:hover {
-    color: #0016469d;
+    color: var(--main-background-color);
+  }
+
+  .settings-menu button:hover {
+    background-color: var(--main-background-color);
+    color: #fff;
+  }
+
+  .dropdown-menu button:hover {
+    background-color: var(--dropdown-btn-hover-background-color);
+  }
+}
+
+@media only screen and (min-width: 50rem) {
+  /* ------ Resets ------ */
+
+  header {
+    right: unset;
+    align-items: unset;
+  }
+
+  .settings-menu {
+    position: unset;
+    padding: 0;
+  }
+
+  /* ------ Header ------ */
+
+  header {
+    background-color: var(--settings-background-color);
+    bottom: 0;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-width: 18rem;
+    border-right: 5px solid rgba(0, 0, 0, 0.198);
+    gap: 1rem;
+  }
+
+  .flex-right {
+    display: block;
+    position: absolute;
+    right: 1.5rem;
+    top: 1.5rem;
+  }
+
+  h1 {
+    padding-left: 0.5rem;
+  }
+
+  .pitch-direction {
+    z-index: 2;
+  }
+
+  .menu {
+    display: none;
+    opacity: 0;
+  }
+
+  /* ------ Settings Menu ------ */
+
+  .settings-menu {
+    background-color: transparent;
+    display: block;
+  }
+
+  .settings-menu h2,
+  .settings-menu h3 {
+    display: none;
+  }
+
+  .menu-item:last-of-type {
+    padding-top: 1rem;
   }
 }
