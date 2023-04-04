@@ -23,7 +23,7 @@ const App = () => {
   };
 
   return (
-    <div className="App">
+    <div className={menuSettings.landscape ? 'App landscape' : 'App'}>
       <Header
         openMenu={openMenu}
         setOpenMenu={setOpenMenu}
@@ -31,7 +31,7 @@ const App = () => {
         setMenuSettings={setMenuSettings}
         menuSettings={menuSettings}
       />
-      <main className={menuSettings.landscape ? 'landscape' : null}>
+      <main>
         <Fretboard
           tuning={tuning}
           setTuning={setTuning}
