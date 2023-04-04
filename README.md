@@ -1,6 +1,6 @@
 # FretFinder
 
-<img width="435" alt="FretFinder on mobile" src="https://user-images.githubusercontent.com/19372021/218582302-2f755501-cd32-433c-ab82-a737657608c5.png">
+<img width="375" alt="FretFinder on mobile" src="https://user-images.githubusercontent.com/19372021/229829644-0159aa4d-b8a8-4a8b-9cbb-d6cb3bf1beaf.png">
 
 ## Project Description
 
